@@ -130,10 +130,11 @@ export default function SkillsnapLanding() {
              {/* Abstract representation of student excitement */}
              <div className="absolute inset-0 bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 {/* Replace this div with a real image of a happy student later */}
-                <div className="w-full h-full bg-slate-200 flex items-center justify-center relative">
-                   <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-orange-500/20 mix-blend-multiply"></div>
-                   <span className="text-gray-400 font-medium">[Image: Happy Student with Tablet]</span>
-                </div>
+                <img 
+                    src="/hero-student.png" 
+                    alt="Happy student learning coding" 
+                    className="w-full h-full object-cover object-[70%_center]"
+                />
              </div>
              
              {/* Floating Elements */}
