@@ -671,55 +671,60 @@ export default function SkillsnapLanding() {
       {/* --- UPDATED Footer --- */}
       <footer className="bg-gray-50 pt-20 pb-10 border-t border-gray-200 text-gray-600">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            {/* Added 'text-center md:text-left' to handle responsive alignment */}
+            <div className="grid md:grid-cols-4 gap-12 mb-16 text-center md:text-left">
             
             {/* Column 1: Brand */}
             <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
+                {/* Added 'justify-center md:justify-start' to center logo on mobile */}
+                <div className="flex items-center justify-center md:justify-start gap-2 -mb-2 -mt-7">
                 <img 
-                   src="/skillsnaplogotransparent.png" 
-                   alt="SkillSnap Logo" 
-                   className="h-16 w-auto object-contain -ml-2" 
+                    src="/skillsnaplogotransparent.png" 
+                    alt="SkillSnap Logo" 
+                    className="h-32 w-auto object-contain -ml-2" 
                 />
-              </div>
-              <p className="text-gray-500 max-w-sm leading-relaxed">
+                </div>
+                {/* Added 'mx-auto md:mx-0' to keep text block centered on mobile */}
+                <p className="text-gray-500 max-w-sm leading-relaxed mx-auto md:mx-0">
                 We create unique learning paths for every student, ensuring the curriculum matches their abilities and inspires growth.
-              </p>
+                </p>
             </div>
 
             {/* Column 2: Quick Links */}
             <div>
-              <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
-              <ul className="space-y-4">
+                <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
+                <ul className="space-y-4">
                 <li><a href="#" className="hover:text-orange-600 transition-colors">About Us</a></li>
                 <li><button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button></li>
                 <li><a href="mailto:hello@skillsnap.com" className="hover:text-orange-600 transition-colors">Email Us</a></li>
-              </ul>
+                </ul>
             </div>
 
             {/* Column 3: Contact/Address */}
             <div>
-              <h4 className="font-bold text-gray-900 mb-6">Get in Touch</h4>
-              <div className="flex items-start gap-3 mb-4">
+                <h4 className="font-bold text-gray-900 mb-6">Get in Touch</h4>
+                {/* Added 'justify-center md:justify-start' for icons */}
+                <div className="flex items-start justify-center md:justify-start gap-3 mb-4">
                 <Mail size={20} className="text-orange-500 mt-1" />
                 <span>support@skillsnap.com</span>
-              </div>
-              <div className="flex items-start gap-3">
+                </div>
+                <div className="flex items-start justify-center md:justify-start gap-3">
                 <MapPin size={20} className="text-orange-500 mt-1" />
                 <span>New Delhi, India</span>
-              </div>
+                </div>
             </div>
-          </div>
-          
-          <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-             <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
-             <div className="flex gap-6 mt-4 md:mt-0">
-               <a href="#" className="hover:text-gray-900">Privacy Policy</a>
-               <a href="#" className="hover:text-gray-900">Terms of Use</a>
-             </div>
-          </div>
+            </div>
+            
+            {/* Bottom Bar: Centered on mobile by default due to flex-col items-center */}
+            <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left">
+                <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
+                <div className="flex gap-6 mt-4 md:mt-0">
+                <a href="#" className="hover:text-gray-900">Privacy Policy</a>
+                <a href="#" className="hover:text-gray-900">Terms of Use</a>
+                </div>
+            </div>
         </div>
-      </footer>
+    </footer>
 
     </div>
   );
