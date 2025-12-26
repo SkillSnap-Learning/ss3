@@ -577,17 +577,32 @@ export default function SkillsnapLanding() {
                   Get a Call Back
                 </h3>
                 <form className="space-y-3">
-                  <input type="text" placeholder="Parent's Name" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
-                  <input type="tel" placeholder="Phone Number (WhatsApp preferred)" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
-                  <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-gray-500">
-                    <option>Select Student's Class</option>
-                    <option>Class 6</option>
-                    <option>Class 7</option>
-                    <option>Class 8</option>
-                    <option>Class 9</option>
-                    <option>Class 10</option>
+                  <input 
+                    type="text" 
+                    placeholder="Parent's Name *"
+                    required 
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                  <input 
+                    type="tel" 
+                    placeholder="Phone Number (WhatsApp preferred) *" 
+                    required
+                    pattern='[0-9]{10}'
+                    title='Please enter a valid 10-digit mobile number'
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                  <select 
+                    required
+                    defaultValue=""
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-gray-500">
+                    <option value="" disabled>Select Student's Class *</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
                   </select>
-                  <button className="w-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-orange-200 hover:shadow-xl hover:scale-[1.02] transition-all">
+                  <button 
+                    type='submit' 
+                    className="w-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-orange-200 hover:shadow-xl hover:scale-[1.02] transition-all">
                     Request Call Back
                   </button>
                   <p className="text-xs text-center text-gray-400 mt-2">Our counselors will call you within 24 hours.</p>
