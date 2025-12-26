@@ -135,9 +135,7 @@ export default function SkillsnapLanding() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* LOGO UPDATE: Replaced text with Image. 
-                Using h-12 to make it large enough, w-auto to keep ratio. 
-            */}
+            {/* LOGO UPDATE: Using the transparent logo image. */}
             <img 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
@@ -167,7 +165,6 @@ export default function SkillsnapLanding() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative">
           
           {/* Left: Content */}
-          {/* Added 'flex flex-col items-center lg:items-start text-center lg:text-left' to center everything on mobile */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <FadeIn>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold uppercase tracking-wide mb-6">
@@ -187,7 +184,6 @@ export default function SkillsnapLanding() {
 
             {/* Lead Form Box */}
             <FadeIn delay={0.2}>
-              {/* Added 'mx-auto lg:mx-0' to center the form box on mobile */}
               <div id="contact-form" className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-md w-full mx-auto lg:mx-0 scroll-mt-24 text-left">
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-blue-900">
                   <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
@@ -213,20 +209,22 @@ export default function SkillsnapLanding() {
             </FadeIn>
           </div>
 
-          {/* Right: Visual */}
-          {/* Removed 'hidden'. Added 'h-[400px]' for mobile and kept 'lg:h-[600px]' for desktop. Added 'mt-10' for spacing on mobile */}
+          {/* Right: Visual (UPDATED back to Photo) */}
           <div className="relative block h-[400px] lg:h-[600px] mt-12 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none">
-             {/* Illustration Container */}
-             <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+             {/* Student Image Container */}
+             {/* Reverted bg-white to bg-gray-100 placeholder */}
+             <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                 <img 
-                  src="/hero-illustration.png" 
-                  alt="Students learning with tablet illustration" 
-                  className="w-full h-full object-contain bg-white"
+                  src="/hero-student.png" // Reverted to the photo file
+                  alt="Happy student holding tablet showing coding project" 
+                  // Reverted to object-cover and object-right for proper photo framing
+                  className="w-full h-full object-cover object-[70%_center]"
                 />
-                 <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
+                 {/* Reverted to dark gradient overlay for photo depth */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
              </div>
              
-             {/* Floating Elements - Adjusted positions slightly for smaller screens */}
+             {/* Floating Elements */}
              <FloatingBadge 
                icon={Award} 
                text="Top Scorer" 
@@ -380,7 +378,6 @@ export default function SkillsnapLanding() {
       </section>
 
       {/* --- Student's Excitement (The Vibe) --- */}
-      {/* Changed bg-gray-900 to bg-blue-950 to match Logo Navy */}
       <section className="py-24 bg-blue-950 text-white relative overflow-hidden">
         {/* Decorative Grid */}
         <div className="absolute inset-0 opacity-10" 
