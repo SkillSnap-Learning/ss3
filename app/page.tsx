@@ -601,7 +601,7 @@ export default function SkillsnapLanding() {
              {/* Student Image Container */}
              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                 <img 
-                  src="/hero-student.png" 
+                  src="/hero-student-logo.png" 
                   alt="Happy student holding tablet showing coding project" 
                   className="w-full h-full object-cover object-[70%_center]"
                 />
