@@ -15,7 +15,13 @@ import {
   Rocket,
   MessageCircle,
   Play,
-  Headphones // Kept for the new Mentor card
+  Headphones,
+  Calendar,    // Added
+  Clock,       // Added
+  Lock,        // Added
+  Smartphone,  // Added
+  Mail,        // Added
+  MapPin       // Added
 } from 'lucide-react';
 
 // --- Components ---
@@ -43,11 +49,164 @@ const FloatingBadge = ({ icon: Icon, text, className }: { icon: any, text: strin
   </motion.div>
 );
 
+// --- NEW COMPONENT: How You Learn (The 4 Visual Cards) ---
+const LearningJourney = () => {
+  return (
+    <section className="py-24 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <FadeIn>
+            <h2 className="text-3xl lg:text-4xl font-bold text-blue-950 mb-4">How You Learn</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We don't just teach; we structure your child's success. 
+              Structured, engaging, and personalized to each student’s pace.
+            </p>
+          </FadeIn>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          
+          {/* Card 1: The Daily Routine */}
+          <FadeIn delay={0.1}>
+            <div className="h-full bg-blue-50/50 rounded-3xl p-8 border border-blue-100 flex flex-col hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 mb-6">
+                 <Calendar size={28} />
+               </div>
+               <h3 className="text-xl font-bold text-blue-950 mb-3">Structured Weekday Learning</h3>
+               <p className="text-gray-600 mb-6 flex-grow">
+                 Classes run Monday to Friday with a personalized timetable. We include short 5–15 minute breaks between subjects to ensure students stay fresh and focused.
+               </p>
+               <div className="bg-white p-4 rounded-xl text-sm font-semibold text-blue-800 border border-blue-100">
+                 ✨ 24/7 Access: Missed a class? All lectures are available on weekends too.
+               </div>
+            </div>
+          </FadeIn>
+
+          {/* Card 2: The Power Hour (Lecture Structure) */}
+          <FadeIn delay={0.2}>
+            <div className="h-full bg-orange-50/50 rounded-3xl p-8 border border-orange-100 flex flex-col hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-orange-600 mb-6">
+                 <Clock size={28} />
+               </div>
+               <h3 className="text-xl font-bold text-blue-950 mb-3">The 50-Minute Power Cycle</h3>
+               <p className="text-gray-600 mb-6 flex-grow">
+                 We don't do boring hour-long lectures. Every session is scientifically structured for maximum retention:
+               </p>
+               <ul className="space-y-3">
+                 <li className="flex items-center gap-3 text-sm text-gray-700">
+                   <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-orange-600 border border-orange-100">35</span>
+                   <span>Mins Lecture (Visual & Interactive)</span>
+                 </li>
+                 <li className="flex items-center gap-3 text-sm text-gray-700">
+                   <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-teal-600 border border-teal-100">10</span>
+                   <span>Mins Quick Revision & Key Notes</span>
+                 </li>
+                 <li className="flex items-center gap-3 text-sm text-gray-700">
+                   <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-purple-600 border border-purple-100">05</span>
+                   <span>Mins Interactive Test</span>
+                 </li>
+               </ul>
+            </div>
+          </FadeIn>
+
+          {/* Card 3: Mastery Progression */}
+          <FadeIn delay={0.3}>
+            <div className="h-full bg-teal-50/50 rounded-3xl p-8 border border-teal-100 flex flex-col hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-teal-600 mb-6">
+                 <Lock size={28} />
+               </div>
+               <h3 className="text-xl font-bold text-blue-950 mb-3">The "Unlock" System</h3>
+               <p className="text-gray-600 mb-6 flex-grow">
+                 We ensure strong foundations. A student cannot move to the next chapter until they clear the tests for the current one. No rushing, just mastering.
+               </p>
+               <div className="flex gap-2">
+                 <span className="px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-bold">Weekly Mini-Tests</span>
+                 <span className="px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-bold">Quarterly Major Exams</span>
+               </div>
+            </div>
+          </FadeIn>
+
+          {/* Card 4: Weekend Coding */}
+          <FadeIn delay={0.4}>
+            <div className="h-full bg-purple-50/50 rounded-3xl p-8 border border-purple-100 flex flex-col hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-purple-600 mb-6">
+                 <Code size={28} />
+               </div>
+               <h3 className="text-xl font-bold text-blue-950 mb-3">Weekend Innovation Labs</h3>
+               <p className="text-gray-600 mb-6 flex-grow">
+                 Saturdays and Sundays are for builders. In our 2-hour practical sessions, students apply what they learned by building apps, websites, and solving real-world logic puzzles.
+               </p>
+               <div className="bg-white p-4 rounded-xl text-sm font-semibold text-purple-800 border border-purple-100 flex items-center gap-2">
+                 <Rocket size={16} /> Hands-on projects, not theory.
+               </div>
+            </div>
+          </FadeIn>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- NEW COMPONENT: App Download ---
+const AppDownload = () => {
+  return (
+    <section className="bg-blue-950 py-20 overflow-hidden relative">
+       {/* Background Decoration */}
+       <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+
+       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-900 text-blue-200 rounded-full text-sm font-bold mb-6 border border-blue-800">
+           <Smartphone size={16} />
+           <span>Learning in your pocket</span>
+         </div>
+         
+         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+           Go at your own rhythm.<br />
+           <span className="text-orange-500">24/7 Access from anywhere.</span>
+         </h2>
+         
+         <p className="text-blue-200 max-w-2xl mx-auto mb-10 text-lg">
+           Download the Skillsnap Learning App – India’s Out-of-the-Box Learning Platform.
+           Watch lectures, take quizzes, and track progress on the go.
+         </p>
+
+         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+           {/* Play Store Button Mockup */}
+           <button className="flex items-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300 font-medium">
+             <div className="w-6 h-6 text-green-600">
+                {/* Simple Play Store Icon SVG */}
+               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm11.75 11.622l5.77 5.77a.998.998 0 0 0 1.416 0l1.325-1.325-8.51-4.445zM15.359 10.564l8.51-4.446-1.325-1.325a.998.998 0 0 0-1.416 0l-5.77 5.771zM4.708 23.367l9.743-9.743 4.87 2.544-13.68 7.148a1 1 0 0 1-.933.051zM4.708.633a1 1 0 0 1 .933.051l13.68 7.148-4.87 2.544L4.708.633z"/></svg>
+             </div>
+             <div className="text-left">
+               <div className="text-[10px] uppercase font-bold text-gray-500 leading-none">GET IT ON</div>
+               <div className="text-base font-bold leading-none mt-0.5">Google Play</div>
+             </div>
+           </button>
+
+           {/* App Store Button Mockup */}
+           <button className="flex items-center gap-3 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-white/20 hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm">
+             <div className="w-6 h-6 text-white">
+                {/* Simple Apple Icon SVG */}
+               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.02-1.03.05-2.28.69-3.02 1.6-.66.82-1.24 2.12-1.08 3.01 1.15.09 2.33-.63 3.09-1.59z"/></svg>
+             </div>
+             <div className="text-left">
+               <div className="text-[10px] uppercase font-bold text-gray-400 leading-none">Download on the</div>
+               <div className="text-base font-bold leading-none mt-0.5">App Store</div>
+             </div>
+           </button>
+         </div>
+       </div>
+    </section>
+  )
+}
+
+// --- MAIN PAGE ---
+
 export default function SkillsnapLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("Class 6");
-  
-  // State to track which card is expanded
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -69,7 +228,6 @@ export default function SkillsnapLanding() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* Using the transparent logo image. */}
             <img 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
@@ -92,7 +250,6 @@ export default function SkillsnapLanding() {
 
       {/* --- Hero Section --- */}
       <section className="relative pt-40 pb-20 overflow-hidden">
-        {/* Background Blobs */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-orange-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
@@ -158,20 +315,17 @@ export default function SkillsnapLanding() {
             </FadeIn>
           </div>
 
-          {/* Right: Visual (Using PHOTO) */}
+          {/* Right: Visual */}
           <div className="relative block h-[400px] lg:h-[600px] mt-12 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none">
-             {/* Student Image Container */}
              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                 <img 
                   src="/hero-student-logo.png" 
                   alt="Happy student holding tablet showing coding project" 
                   className="w-full h-full object-cover object-[70%_center]"
                 />
-                 {/* Dark gradient overlay for photo depth */}
                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
              </div>
              
-             {/* Floating Elements */}
              <FloatingBadge 
                icon={Award} 
                text="Top Scorer" 
@@ -217,7 +371,6 @@ export default function SkillsnapLanding() {
             </div>
           </FadeIn>
 
-          {/* Changed grid to 4 columns on Large screens */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
               {
@@ -279,7 +432,7 @@ export default function SkillsnapLanding() {
                   key={tab}
                   onClick={() => {
                     setActiveTab(tab);
-                    setExpandedCard(null); // Close any expanded cards when switching tabs
+                    setExpandedCard(null); 
                   }}
                   className={`px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap ${
                     activeTab === tab 
@@ -306,8 +459,6 @@ export default function SkillsnapLanding() {
               {CURRICULUM_DATA[activeTab]?.length > 0 ? (
                 CURRICULUM_DATA[activeTab].map((card: any, idx: number) => (
                   <div key={idx} className={`bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 overflow-hidden ${expandedCard === idx ? 'ring-2 ring-orange-100' : ''}`}>
-                    
-                    {/* Card Header (Visible Always) */}
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-4">
                         <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center shrink-0`}>
@@ -328,7 +479,6 @@ export default function SkillsnapLanding() {
                         ))}
                       </ul>
 
-                      {/* Toggle Button */}
                       <button 
                         onClick={() => toggleCard(idx)}
                         className="w-full py-3 rounded-xl border border-gray-200 text-gray-700 font-bold text-sm hover:bg-gray-50 hover:text-blue-900 transition-colors flex items-center justify-center gap-2 group"
@@ -341,7 +491,6 @@ export default function SkillsnapLanding() {
                       </button>
                     </div>
 
-                    {/* Detailed Curriculum (Expandable Inline Section) */}
                     <AnimatePresence>
                       {expandedCard === idx && card.details && (
                         <motion.div
@@ -382,7 +531,6 @@ export default function SkillsnapLanding() {
                         </motion.div>
                       )}
                     </AnimatePresence>
-
                   </div>
                 ))
               ) : (
@@ -399,13 +547,14 @@ export default function SkillsnapLanding() {
               Download Full Brochure <ChevronDown size={16} />
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* --- Student's Excitement (The Vibe) --- */}
+      {/* --- NEW SECTION: How You Learn --- */}
+      <LearningJourney />
+
+      {/* --- Student's Excitement --- */}
       <section className="py-24 bg-blue-950 text-white relative overflow-hidden">
-        {/* Decorative Grid */}
         <div className="absolute inset-0 opacity-10" 
              style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
         </div>
@@ -415,7 +564,6 @@ export default function SkillsnapLanding() {
             <div>
               <span className="text-orange-400 font-bold tracking-wider uppercase text-sm">For Students</span>
               <h2 className="text-4xl font-bold mt-2 mb-6">Learning that doesn't feel like a chore.</h2>
-              
               <div className="space-y-8">
                 {[
                   { title: "Gamified Learning", desc: "Earn badges, climb leaderboards, and unlock rewards for finishing homework." },
@@ -444,7 +592,6 @@ export default function SkillsnapLanding() {
                 transition={{ duration: 0.5 }}
                 className="bg-gradient-to-br from-blue-900 to-blue-950 p-2 rounded-2xl border border-blue-800 shadow-2xl"
               >
-                {/* Mock UI of the Platform */}
                 <div className="aspect-video bg-black rounded-xl flex items-center justify-center relative overflow-hidden group cursor-pointer">
                   <div className="absolute inset-0 bg-orange-600/20 group-hover:bg-orange-600/10 transition-colors"></div>
                   <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
@@ -492,27 +639,57 @@ export default function SkillsnapLanding() {
         </div>
       </section>
 
-      {/* --- CTA / Footer --- */}
-      <footer className="bg-blue-950 text-white pt-20 pb-10">
+      {/* --- App Download Section --- */}
+      <AppDownload />
+
+      {/* --- UPDATED Footer --- */}
+      <footer className="bg-gray-50 pt-20 pb-10 border-t border-gray-200 text-gray-600">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
-            <div className="max-w-md">
-              <h2 className="text-3xl font-bold mb-4">Ready to boost your child's confidence?</h2>
-              <p className="text-blue-200">Join 5,000+ students learning smarter, not harder.</p>
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            
+            {/* Column 1: Brand */}
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center gap-2 mb-6">
+                <img 
+                   src="/skillsnaplogotransparent.png" 
+                   alt="SkillSnap Logo" 
+                   className="h-16 w-auto object-contain -ml-2" 
+                />
+              </div>
+              <p className="text-gray-500 max-w-sm leading-relaxed">
+                We create unique learning paths for every student, ensuring the curriculum matches their abilities and inspires growth.
+              </p>
             </div>
-            <button 
-              onClick={scrollToContact} 
-              className="px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white rounded-full font-bold text-lg shadow-lg shadow-orange-900/50 transition-all hover:scale-105"
-            >
-              Contact Us Today
-            </button>
+
+            {/* Column 2: Quick Links */}
+            <div>
+              <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="hover:text-orange-600 transition-colors">About Us</a></li>
+                <li><button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button></li>
+                <li><a href="mailto:hello@skillsnap.com" className="hover:text-orange-600 transition-colors">Email Us</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Contact/Address */}
+            <div>
+              <h4 className="font-bold text-gray-900 mb-6">Get in Touch</h4>
+              <div className="flex items-start gap-3 mb-4">
+                <Mail size={20} className="text-orange-500 mt-1" />
+                <span>support@skillsnap.com</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin size={20} className="text-orange-500 mt-1" />
+                <span>New Delhi, India</span>
+              </div>
+            </div>
           </div>
           
-          <div className="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-blue-300">
-             <p>&copy; 2024 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
+          <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+             <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
              <div className="flex gap-6 mt-4 md:mt-0">
-               <a href="#" className="hover:text-white">Privacy Policy</a>
-               <a href="#" className="hover:text-white">Terms of Service</a>
+               <a href="#" className="hover:text-gray-900">Privacy Policy</a>
+               <a href="#" className="hover:text-gray-900">Terms of Use</a>
              </div>
           </div>
         </div>
