@@ -135,7 +135,7 @@ export default function SkillsnapLanding() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* LOGO UPDATE: Using the transparent logo image. */}
+            {/* Using the transparent logo image. */}
             <img 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
@@ -209,18 +209,17 @@ export default function SkillsnapLanding() {
             </FadeIn>
           </div>
 
-          {/* Right: Visual (UPDATED back to Photo) */}
+          {/* Right: Visual (Using PHOTO) */}
           <div className="relative block h-[400px] lg:h-[600px] mt-12 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none">
              {/* Student Image Container */}
-             {/* Reverted bg-white to bg-gray-100 placeholder */}
              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                 <img 
-                  src="/hero-student.png" // Reverted to the photo file
+                  src="/hero-student.png" 
                   alt="Happy student holding tablet showing coding project" 
                   // Reverted to object-cover and object-right for proper photo framing
                   className="w-full h-full object-cover object-[70%_center]"
                 />
-                 {/* Reverted to dark gradient overlay for photo depth */}
+                 {/* Dark gradient overlay for photo depth */}
                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
              </div>
              
@@ -316,9 +315,10 @@ export default function SkillsnapLanding() {
             <p className="text-lg text-gray-600">Select your child's class to see what they will learn.</p>
           </div>
 
-          {/* Horizontal Tabs */}
-          <div className="flex justify-center mb-12 overflow-x-auto pb-4 no-scrollbar">
-            <div className="flex gap-2 p-1 bg-white rounded-full border border-gray-200 shadow-sm">
+          {/* Horizontal Tabs - MODIFIED FOR FIX */}
+          {/* Changed justify-center to justify-start md:justify-center to fix mobile scrolling. Added px-6 */}
+          <div className="flex justify-start md:justify-center mb-12 overflow-x-auto pb-4 no-scrollbar px-6 md:px-0">
+            <div className="flex gap-2 p-1 bg-white rounded-full border border-gray-200 shadow-sm min-w-max">
               {Object.keys(CURRICULUM_DATA).map((tab) => (
                 <button
                   key={tab}
