@@ -390,57 +390,81 @@ export default function SkillsnapLanding() {
       {/* --- Parent's Peace of Mind (MERGED WITH MENTOR) --- */}
       <section id="parents" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn>
+            <FadeIn>
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-blue-950 mb-4">Why Parents Trust SkillSnap</h2>
-              <p className="text-lg text-gray-600">We balance academic rigour with modern skills.</p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-blue-950 mb-4">Why Parents Trust SkillSnap</h2>
+                <p className="text-lg text-gray-600">We balance academic rigour with modern skills.</p>
             </div>
-          </FadeIn>
+            </FadeIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {/* First row - 3 cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-6 lg:mb-8">
             {[
-              {
+                {
                 icon: BookOpen,
                 color: "text-blue-600",
                 bg: "bg-blue-100",
-                title: "Curriculum Aligned",
-                desc: "100% mapped to CBSE & ICSE syllabus. We don't distract them; we support their school exams."
-              },
-              {
+                title: "Immersive Skill-Building Sessions",
+                desc: "These sessions are designed to develop real-world competencies through hands-on practice and guided learning."
+                },
+                {
                 icon: Shield,
                 color: "text-teal-600",
                 bg: "bg-teal-100",
-                title: "Safe & Focused",
-                desc: "A secure, ad-free environment dedicated solely to learning. No social media distractions."
-              },
-              {
+                title: "Tailored Learning Experiences",
+                desc: "We deliver tailored learning experiences that adapt to individual strengths and learning needs."
+                },
+                {
                 icon: Users,
                 color: "text-purple-600",
                 bg: "bg-purple-100",
-                title: "Progress Reports",
-                desc: "Get weekly WhatsApp reports on your child's attendance, test scores, and areas of improvement."
-              },
-              {
+                title: "Consistent Smart Progress Insights for Parents",
+                desc: "Parents receive consistent, data driven insights to confidently track their child’s academic progress."
+                }
+            ].map((feature, idx) => (
+                <FadeIn delay={idx * 0.1} key={idx}>
+                <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group h-full">
+                    <div className={`w-14 h-14 ${feature.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <feature.icon size={28} className={feature.color} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">{feature.desc}</p>
+                </div>
+                </FadeIn>
+            ))}
+            </div>
+
+            {/* Second row - 2 cards centered */}
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+            {[
+                {
+                icon: Award,
+                color: "text-rose-600",
+                bg: "bg-rose-100",
+                title: "Gamified Learning",
+                desc: "Our modern teaching approach blends visuals, quizzes, and  gamified learning for better understanding."
+                },
+                {
                 icon: Headphones,
                 color: "text-orange-600",
                 bg: "bg-orange-100",
                 title: "24x7 Mentor Support",
-                desc: "No student is left behind. Our dedicated mentors provide 1-on-1 doubt clearing whenever your child gets stuck."
-              }
+                desc: "Our mentors provide one-on-one support to ensure every  learner stays on track with our modern Ed-Tech approach."
+                }
             ].map((feature, idx) => (
-              <FadeIn delay={idx * 0.1} key={idx}>
+                <FadeIn delay={(idx + 3) * 0.1} key={idx}>
                 <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group h-full">
-                  <div className={`w-14 h-14 ${feature.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <div className={`w-14 h-14 ${feature.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                     <feature.icon size={28} className={feature.color} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{feature.desc}</p>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">{feature.desc}</p>
                 </div>
-              </FadeIn>
+                </FadeIn>
             ))}
-          </div>
+            </div>
         </div>
-      </section>
+    </section>
 
       {/* --- Curriculum Section --- */}
       <section id="curriculum" className="py-24 bg-blue-50/50">
