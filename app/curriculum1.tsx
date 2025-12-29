@@ -11,6 +11,9 @@ import {
 
 // --- Data: Curriculum with Details ---
 export const CURRICULUM_DATA: Record<string, any> = {
+  /* =========================
+       CLASS 6
+  ========================= */
   "Class 6": [
     {
       subject: "Mathematics",
@@ -95,7 +98,6 @@ export const CURRICULUM_DATA: Record<string, any> = {
         }
       ]
     },
-
     {
       subject: "English",
       tagline: "English Made Easy, Engaging, and Effective",
@@ -179,7 +181,6 @@ export const CURRICULUM_DATA: Record<string, any> = {
         }
       ]
     },
-
     {
       subject: "Interactive Science",
       tagline: "Explore, Experiment, Excel in Science",
@@ -218,7 +219,7 @@ export const CURRICULUM_DATA: Record<string, any> = {
           points: [
             "Develop logical reasoning and analytical skills",
             "Solve scientific problems step by step",
-            "Encourage curiosity and asking “why”"
+            "Encourage curiosity and asking \"why\""
           ]
         },
         {
@@ -263,7 +264,6 @@ export const CURRICULUM_DATA: Record<string, any> = {
         }
       ]
     },
-
     {
       subject: "Exploratory Social Studies",
       tagline: "Discover, Analyze, and Connect with the World",
@@ -348,302 +348,1362 @@ export const CURRICULUM_DATA: Record<string, any> = {
       ]
     }
   ],
+
+  /* =========================
+       CLASS 7
+  ========================= */
   "Class 7": [
     {
       subject: "Mathematics",
-      tagline: "Advancing Logical Reasoning",
+      tagline: "Strengthening Logic, Accuracy & Real-World Maths Skills",
       icon: Calculator,
       color: "text-blue-700",
       bg: "bg-blue-100",
-      summary: ["Integers", "Rational Numbers", "Algebraic Expressions", "Triangles"],
+      summary: [
+        "Advanced Number Sense",
+        "Concept-Based Learning",
+        "Problem-Solving Mastery",
+        "Geometry & Spatial Visualization",
+        "Algebraic Foundations",
+        "Data Handling & Analytical Thinking",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
       details: [
-        { title: "Number Systems", points: ["Properties of integers", "Fractions and decimals", "Rational numbers intro"] },
-        { title: "Algebraic Mastery", points: ["Simple equations", "Formulating expressions", "Solving for X"] },
-        { title: "Geometry In-Depth", points: ["Lines and angles", "Properties of triangles", "Congruence"] },
-        { title: "Commercial Math", points: ["Comparing quantities", "Profit and loss", "Simple interest"] },
-        { title: "Data Handling", points: ["Mean, median, mode", "Bar graphs", "Probability basics"] },
-        { title: "Mensuration", points: ["Perimeter and area", "Circles and rectangles", "Real-life application"] },
-        { title: "Logical Reasoning", points: ["Pattern finding", "Deductive reasoning", "Math puzzles"] },
-        { title: "Visual Math", points: ["Symmetry", "Visualizing solid shapes", "3D understanding"] }
-      ]
-    },
-    {
-      subject: "Science",
-      tagline: "Understanding Natural Phenomena",
-      icon: Beaker,
-      color: "text-teal-600",
-      bg: "bg-teal-100",
-      summary: ["Nutrition", "Heat & Temperature", "Acids & Bases", "Respiration"],
-      details: [
-        { title: "Biology: Life Processes", points: ["Nutrition in plants/animals", "Respiration in organisms", "Transport in plants"] },
-        { title: "Chemistry: Matter", points: ["Acids, bases, and salts", "Physical and chemical changes", "Water management"] },
-        { title: "Physics: Energy", points: ["Heat and temperature", "Electric current effects", "Light and reflection"] },
-        { title: "Natural Phenomena", points: ["Winds and storms", "Soil profiles", "Weather and climate"] },
-        { title: "Lab Skills", points: ["Handling apparatus", "Safety protocols", "Accurate measurement"] },
-        { title: "Scientific Diagrams", points: ["Circuit diagrams", "Biological systems", "Chemical equations"] },
-        { title: "Inquiry Projects", points: ["Model making", "Field observations", "Experiment reports"] },
-        { title: "Tech in Science", points: ["Digital microscopes", "Simulation apps", "Data logging"] }
+        {
+          title: "Advanced Number Sense",
+          points: [
+            "Deepen understanding of integers, rational numbers, and decimals",
+            "Strengthen mental math and estimation skills",
+            "Improve speed and accuracy in calculations"
+          ]
+        },
+        {
+          title: "Concept-Based Learning",
+          points: [
+            "Understand the logic behind formulas and rules",
+            "Apply ratios, proportions, percentages, and profit & loss concepts",
+            "Use real-life situations to reinforce mathematical thinking"
+          ]
+        },
+        {
+          title: "Problem-Solving Mastery",
+          points: [
+            "Solve multi-step word problems with confidence",
+            "Learn structured approaches to complex problems",
+            "Engage in logical puzzles and reasoning challenges"
+          ]
+        },
+        {
+          title: "Geometry & Spatial Visualization",
+          points: [
+            "Explore lines, angles, triangles, congruence, and symmetry",
+            "Learn construction and measurement techniques",
+            "Apply perimeter, area, and volume to real-world examples"
+          ]
+        },
+        {
+          title: "Algebraic Foundations",
+          points: [
+            "Work with expressions, equations, and simple linear equations",
+            "Identify patterns and relationships",
+            "Apply algebra to daily-life situations"
+          ]
+        },
+        {
+          title: "Data Handling & Analytical Thinking",
+          points: [
+            "Interpret bar graphs, pie charts, and data tables",
+            "Learn mean, median, mode, and probability basics",
+            "Develop analytical and reasoning abilities"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Daily exercises and topic-wise quizzes",
+            "Balanced mix of numerical, logical, and application-based questions",
+            "Progress tracking and milestone achievements"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Visual explanations, interactive quizzes, and gamified tasks",
+            "Group problem-solving and peer learning",
+            "Learn by exploring, experimenting, and applying concepts"
+          ]
+        }
       ]
     },
     {
       subject: "English",
-      tagline: "Refining Expression",
+      tagline: "Building Strong Communication & Language Confidence",
       icon: PenTool,
       color: "text-pink-600",
       bg: "bg-pink-100",
-      summary: ["Grammar Mechanics", "Prose & Poetry", "Notice Writing", "Speeches"],
+      summary: [
+        "Vocabulary Enhancement",
+        "Grammar Proficiency",
+        "Reading Comprehension & Analysis",
+        "Writing Skills Development",
+        "Listening & Speaking Skills",
+        "Literature Appreciation & Analysis",
+        "Regular Practice & Assessment",
+        "Interactive & Enjoyable Learning"
+      ],
       details: [
-        { title: "Advanced Grammar", points: ["Modals and determiners", "Active/Passive voice", "Reported speech"] },
-        { title: "Creative Writing", points: ["Story completion", "Diary entries", "Descriptive writing"] },
-        { title: "Formal Writing", points: ["Notice writing", "Formal letters", "Email etiquette"] },
-        { title: "Literature", points: ["Analyzing themes", "Character sketches", "Poetic devices"] },
-        { title: "Oral Skills", points: ["Debates", "Extempore", "Public speaking confidence"] },
-        { title: "Vocabulary Building", points: ["Idioms and phrases", "One-word substitutions", "Confusing words"] },
-        { title: "Reading Fluency", points: ["Speed reading", "Tone and mood", "Context clues"] },
-        { title: "Exam Strategy", points: ["Time management", "Structuring answers", "Proofreading"] }
+        {
+          title: "Vocabulary Enhancement",
+          points: [
+            "Expand vocabulary through contextual learning",
+            "Improve word usage, synonyms, antonyms, and spellings",
+            "Develop expressive language skills"
+          ]
+        },
+        {
+          title: "Grammar Proficiency",
+          points: [
+            "Master tenses, voice, narration, and sentence structures",
+            "Learn correct usage of punctuation and clauses",
+            "Apply grammar confidently in writing and speaking"
+          ]
+        },
+        {
+          title: "Reading Comprehension & Analysis",
+          points: [
+            "Understand and interpret prose, poetry, and unseen passages",
+            "Develop critical reading and inference skills",
+            "Answer comprehension questions accurately"
+          ]
+        },
+        {
+          title: "Writing Skills Development",
+          points: [
+            "Practice formal and informal writing formats",
+            "Improve creative writing, essays, and descriptive pieces",
+            "Focus on clarity, structure, and grammatical accuracy"
+          ]
+        },
+        {
+          title: "Listening & Speaking Skills",
+          points: [
+            "Enhance pronunciation, fluency, and confidence",
+            "Practice presentations, discussions, and conversations",
+            "Listening comprehension and response activities"
+          ]
+        },
+        {
+          title: "Literature Appreciation & Analysis",
+          points: [
+            "Study stories, poems, and plays from the syllabus",
+            "Analyze characters, themes, and literary devices",
+            "Develop appreciation for language and expression"
+          ]
+        },
+        {
+          title: "Regular Practice & Assessment",
+          points: [
+            "Daily grammar and vocabulary exercises",
+            "Writing tasks and reading practice",
+            "Quizzes and progress assessments"
+          ]
+        },
+        {
+          title: "Interactive & Enjoyable Learning",
+          points: [
+            "Role-plays, storytelling, and language games",
+            "Multimedia learning resources",
+            "Creative expression through activities"
+          ]
+        }
       ]
     },
     {
-      subject: "Social Science",
-      tagline: "Medieval World & Environment",
+      subject: "Interactive Science",
+      tagline: "Understanding Science Through Curiosity & Application",
+      icon: Beaker,
+      color: "text-teal-600",
+      bg: "bg-teal-100",
+      summary: [
+        "Strong Conceptual Foundations",
+        "Visual & Hands-On Experiments",
+        "Critical Thinking & Scientific Reasoning",
+        "Scientific Inquiry & Exploration",
+        "Real-World Applications",
+        "Reading & Research Skills",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
+      details: [
+        {
+          title: "Strong Conceptual Foundations",
+          points: [
+            "Learn Physics, Chemistry, and Biology concepts clearly",
+            "Focus on understanding rather than memorization",
+            "Connect science with everyday experiences"
+          ]
+        },
+        {
+          title: "Visual & Hands-On Experiments",
+          points: [
+            "Observe and conduct guided experiments",
+            "Learn through demonstrations and simulations",
+            "Safe and structured practical exposure"
+          ]
+        },
+        {
+          title: "Critical Thinking & Scientific Reasoning",
+          points: [
+            "Analyze problems logically",
+            "Apply scientific methods step by step",
+            "Encourage curiosity and questioning"
+          ]
+        },
+        {
+          title: "Scientific Inquiry & Exploration",
+          points: [
+            "Learn to observe, hypothesize, and experiment",
+            "Project-based learning for deeper understanding",
+            "Develop research and investigation skills"
+          ]
+        },
+        {
+          title: "Real-World Applications",
+          points: [
+            "Relate science concepts to daily life and technology",
+            "Understand scientific impact on society",
+            "Apply knowledge practically"
+          ]
+        },
+        {
+          title: "Reading & Research Skills",
+          points: [
+            "Interpret scientific texts and diagrams",
+            "Summarize findings and present conclusions",
+            "Build independent learning habits"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Topic-wise quizzes, worksheets, and experiments",
+            "Revision through application-based questions",
+            "Performance tracking and feedback"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Simulations, videos, and gamified science modules",
+            "Group projects and collaborative discussions",
+            "Learning driven by curiosity and exploration"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Exploratory Social Studies",
+      tagline: "Understanding Society, History & the World Around Us",
       icon: Globe,
       color: "text-orange-600",
       bg: "bg-orange-100",
-      summary: ["Medieval History", "Environment", "State Government"],
+      summary: [
+        "Society, Culture & History",
+        "Geography & Environment",
+        "Civics & Governance",
+        "Historical Thinking & Timelines",
+        "Research & Analytical Skills",
+        "Real-World Connections",
+        "Regular Practice",
+        "Fun & Interactive Learning"
+      ],
       details: [
-        { title: "Medieval History", points: ["New Kings and Kingdoms", "The Delhi Sultans", "Mughal Empire"] },
-        { title: "Our Environment", points: ["Interior of the Earth", "Air and Water", "Human environment"] },
-        { title: "Civics & Governance", points: ["Role of government in health", "State government working", "Gender equality"] },
-        { title: "Tribes & Nomads", points: ["Social change", "Regional cultures", "Devotional paths"] },
-        { title: "Market Economics", points: ["Understanding markets", "Chain of supply", "Advertising basics"] },
-        { title: "Map Work", points: ["Historical maps", "River systems", "Vegetation zones"] },
-        { title: "Source Analysis", points: ["Manuscripts", "Inscriptions", "Travelogues"] },
-        { title: "Project Work", points: ["Case studies", "Heritage scrapbooks", "Mock parliament"] }
+        {
+          title: "Society, Culture & History",
+          points: [
+            "Study civilizations, cultures, and historical developments",
+            "Understand cause-and-effect relationships in history",
+            "Connect past events to modern society"
+          ]
+        },
+        {
+          title: "Geography & Environment",
+          points: [
+            "Explore landforms, climate, natural resources, and maps",
+            "Understand human-environment relationships",
+            "Learn through maps, visuals, and case studies"
+          ]
+        },
+        {
+          title: "Civics & Governance",
+          points: [
+            "Understand democracy, governance, and civic duties",
+            "Learn about rights, responsibilities, and institutions",
+            "Develop awareness of social issues"
+          ]
+        },
+        {
+          title: "Historical Thinking & Timelines",
+          points: [
+            "Analyze historical events and movements",
+            "Develop chronological understanding",
+            "Interpret historical sources and evidence"
+          ]
+        },
+        {
+          title: "Research & Analytical Skills",
+          points: [
+            "Conduct small research projects",
+            "Interpret data, maps, and historical texts",
+            "Build reasoning and analytical thinking"
+          ]
+        },
+        {
+          title: "Real-World Connections",
+          points: [
+            "Relate social studies to current affairs",
+            "Understand global and local perspectives",
+            "Learn practical life skills"
+          ]
+        },
+        {
+          title: "Regular Practice",
+          points: [
+            "Worksheets, quizzes, and map work",
+            "Revision and reflection activities",
+            "Progress tracking"
+          ]
+        },
+        {
+          title: "Fun & Interactive Learning",
+          points: [
+            "Role-plays, simulations, and storytelling",
+            "Group discussions and collaborative projects",
+            "Engaging and activity-based learning"
+          ]
+        }
       ]
     }
   ],
+
+  /* =========================
+     CLASS 8
+  ========================= */
   "Class 8": [
     {
       subject: "Mathematics",
-      tagline: "Pre-High School Algebra",
+      tagline: "Building Conceptual Strength, Accuracy & Exam Readiness",
       icon: Calculator,
       color: "text-blue-700",
       bg: "bg-blue-100",
-      summary: ["Linear Equations", "Quadrilaterals", "Exponents", "Factorization"],
+      summary: [
+        "Strong Number Systems",
+        "Concept-Based Mathematical Thinking",
+        "Advanced Problem-Solving Skills",
+        "Geometry & Mensuration Mastery",
+        "Algebraic Understanding",
+        "Data Handling & Probability",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
       details: [
-        { title: "Rational Numbers", points: ["Properties and operations", "Number line representation", "Finding rational numbers"] },
-        { title: "Linear Equations", points: ["One variable equations", "Application problems", "Reducing to linear form"] },
-        { title: "Understanding Shapes", points: ["Polygons and quadrilaterals", "Constructing shapes", "3D visualization"] },
-        { title: "Data Handling", points: ["Histograms", "Pie charts", "Probability"] },
-        { title: "Squares & Cubes", points: ["Square roots methods", "Cube roots", "Estimation"] },
-        { title: "Algebraic Expressions", points: ["Operations on expressions", "Standard identities", "Factorization"] },
-        { title: "Mensuration", points: ["Surface area", "Volume of solids", "Capacity"] },
-        { title: "Exponents & Powers", points: ["Laws of exponents", "Standard form", "Negative exponents"] }
-      ]
-    },
-    {
-      subject: "Science",
-      tagline: "Physics & Micro-Biology",
-      icon: Beaker,
-      color: "text-teal-600",
-      bg: "bg-teal-100",
-      summary: ["Force & Pressure", "Sound & Light", "Microorganisms", "Reproduction"],
-      details: [
-        { title: "Physics: Forces", points: ["Contact/Non-contact forces", "Pressure principles", "Friction"] },
-        { title: "Physics: Waves", points: ["Sound propagation", "Human ear structure", "Light reflection/refraction"] },
-        { title: "Chemistry: Materials", points: ["Metals and non-metals", "Coal and petroleum", "Combustion and flame"] },
-        { title: "Biology: Micro-world", points: ["Microorganisms: Friend & Foe", "Food preservation", "Nitrogen cycle"] },
-        { title: "Biology: Life", points: ["Cell structure", "Reproduction in animals", "Adolescence"] },
-        { title: "Natural Phenomena", points: ["Lightning", "Earthquakes", "Pollution of air/water"] },
-        { title: "Electrical Effects", points: ["Chemical effects of current", "Electroplating", "Circuits"] },
-        { title: "Space Science", points: ["Stars and solar system", "Constellations", "Satellites"] }
+        {
+          title: "Strong Number Systems",
+          points: [
+            "Deepen understanding of rational numbers and exponents",
+            "Strengthen mental calculations and estimation",
+            "Improve accuracy and confidence in numerical operations"
+          ]
+        },
+        {
+          title: "Concept-Based Mathematical Thinking",
+          points: [
+            "Understand the logic behind formulas and methods",
+            "Apply percentages, profit & loss, discount, and interest concepts",
+            "Use real-life examples to strengthen understanding"
+          ]
+        },
+        {
+          title: "Advanced Problem-Solving Skills",
+          points: [
+            "Solve multi-step and application-based word problems",
+            "Learn structured and logical approaches to complex questions",
+            "Strengthen reasoning through puzzles and challenges"
+          ]
+        },
+        {
+          title: "Geometry & Mensuration Mastery",
+          points: [
+            "Learn polygons, angles, quadrilaterals, and constructions",
+            "Understand area, surface area, and volume concepts",
+            "Apply geometry to practical and real-world situations"
+          ]
+        },
+        {
+          title: "Algebraic Understanding",
+          points: [
+            "Work with algebraic expressions and identities",
+            "Solve linear equations confidently",
+            "Identify patterns and relationships across problems"
+          ]
+        },
+        {
+          title: "Data Handling & Probability",
+          points: [
+            "Interpret bar graphs, pie charts, and data tables",
+            "Understand basics of probability",
+            "Develop analytical and decision-making skills"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Chapter-wise exercises and regular quizzes",
+            "Balanced mix of numerical, logical, and application-based questions",
+            "Progress tracking with performance milestones"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Visual explanations, interactive quizzes, and gamified learning",
+            "Group problem-solving and collaborative practice",
+            "Learn by exploring, experimenting, and applying concepts"
+          ]
+        }
       ]
     },
     {
       subject: "English",
-      tagline: "Complex Composition",
+      tagline: "Strengthening Expression, Comprehension & Language Confidence",
       icon: PenTool,
       color: "text-pink-600",
       bg: "bg-pink-100",
-      summary: ["Reading Skills", "Report Writing", "Complex Grammar", "Poetry"],
+      summary: [
+        "Vocabulary Development",
+        "Grammar Proficiency",
+        "Reading Comprehension & Interpretation",
+        "Writing Skills Enhancement",
+        "Listening & Speaking Skills",
+        "Literature Appreciation & Analysis",
+        "Regular Practice & Assessment",
+        "Interactive & Enjoyable Learning"
+      ],
       details: [
-        { title: "Advanced Comprehension", points: ["Inference based questions", "Tone analysis", "Vocabulary in context"] },
-        { title: "Grammar Precision", points: ["Conjunctions", "Prepositions", "Direct/Indirect speech mastery"] },
-        { title: "Writing Composition", points: ["Article writing", "Report writing", "Short story creation"] },
-        { title: "Poetry Analysis", points: ["Metaphor and simile", "Rhyme scheme", "Critical appreciation"] },
-        { title: "Speaking Skills", points: ["Group discussions", "Interview skills", "Narrating events"] },
-        { title: "Listening Skills", points: ["Note-taking", "Following instructions", "Audio comprehension"] },
-        { title: "Vocabulary", points: ["Phrasal verbs", "Suffixes/Prefixes", "Technical vocabulary"] },
-        { title: "Literary Classics", points: ["Reading abridged classics", "Understanding context", "Book reviews"] }
+        {
+          title: "Vocabulary Development",
+          points: [
+            "Expand vocabulary through contextual usage",
+            "Improve synonyms, antonyms, spellings, and word forms",
+            "Enhance expressive language skills"
+          ]
+        },
+        {
+          title: "Grammar Proficiency",
+          points: [
+            "Master tenses, modals, clauses, and sentence structures",
+            "Learn accurate use of punctuation and grammar rules",
+            "Apply grammar confidently in writing and speaking"
+          ]
+        },
+        {
+          title: "Reading Comprehension & Interpretation",
+          points: [
+            "Understand prose, poetry, and unseen passages",
+            "Develop critical reading and inference skills",
+            "Answer comprehension questions accurately"
+          ]
+        },
+        {
+          title: "Writing Skills Enhancement",
+          points: [
+            "Practice essays, letters, notices, and creative writing",
+            "Improve clarity, coherence, and structure",
+            "Focus on grammar accuracy and expression"
+          ]
+        },
+        {
+          title: "Listening & Speaking Skills",
+          points: [
+            "Improve pronunciation, fluency, and confidence",
+            "Practice presentations, discussions, and conversations",
+            "Listening comprehension and response activities"
+          ]
+        },
+        {
+          title: "Literature Appreciation & Analysis",
+          points: [
+            "Study prescribed stories, poems, and prose",
+            "Analyze characters, themes, and literary devices",
+            "Develop deeper appreciation of language"
+          ]
+        },
+        {
+          title: "Regular Practice & Assessment",
+          points: [
+            "Daily grammar and vocabulary exercises",
+            "Writing tasks and reading practice",
+            "Periodic assessments and feedback"
+          ]
+        },
+        {
+          title: "Interactive & Enjoyable Learning",
+          points: [
+            "Role-plays, storytelling, and language games",
+            "Multimedia resources and activities",
+            "Creative expression through interactive learning"
+          ]
+        }
       ]
     },
     {
-      subject: "Social Science",
-      tagline: "Modern History & Law",
+      subject: "Interactive Science",
+      tagline: "Building Scientific Thinking Through Understanding & Application",
+      icon: Beaker,
+      color: "text-teal-600",
+      bg: "bg-teal-100",
+      summary: [
+        "Strong Conceptual Foundations",
+        "Visual & Hands-On Experiments",
+        "Critical Thinking & Scientific Reasoning",
+        "Scientific Inquiry & Exploration",
+        "Real-World Applications",
+        "Reading & Research Skills",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
+      details: [
+        {
+          title: "Strong Conceptual Foundations",
+          points: [
+            "Clear understanding of Physics, Chemistry, and Biology",
+            "Focus on concepts rather than rote memorization",
+            "Connect science with everyday experiences"
+          ]
+        },
+        {
+          title: "Visual & Hands-On Experiments",
+          points: [
+            "Observe and conduct guided experiments",
+            "Learn through demonstrations and simulations",
+            "Safe, structured, and engaging practical exposure"
+          ]
+        },
+        {
+          title: "Critical Thinking & Scientific Reasoning",
+          points: [
+            "Analyze scientific problems logically",
+            "Apply scientific methods step by step",
+            "Encourage curiosity and questioning"
+          ]
+        },
+        {
+          title: "Scientific Inquiry & Exploration",
+          points: [
+            "Learn to observe, hypothesize, and experiment",
+            "Project-based learning for deeper understanding",
+            "Develop investigation and research skills"
+          ]
+        },
+        {
+          title: "Real-World Applications",
+          points: [
+            "Relate scientific concepts to daily life and technology",
+            "Understand the impact of science on society",
+            "Apply learning practically"
+          ]
+        },
+        {
+          title: "Reading & Research Skills",
+          points: [
+            "Interpret scientific texts, diagrams, and data",
+            "Summarize observations and conclusions",
+            "Build independent learning habits"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Topic-wise quizzes, worksheets, and experiments",
+            "Revision through application-based questions",
+            "Performance tracking and feedback"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Simulations, videos, and gamified science modules",
+            "Group projects and collaborative discussions",
+            "Learning driven by curiosity and exploration"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Exploratory Social Studies",
+      tagline: "Understanding Society, Geography & History with Real-World Connections",
       icon: Globe,
       color: "text-orange-600",
       bg: "bg-orange-100",
-      summary: ["British Raj", "Indian Constitution", "Agriculture", "Judiciary"],
+      summary: [
+        "History & Civilization Studies",
+        "Geography & Environment",
+        "Civics & Governance",
+        "Historical Thinking & Timelines",
+        "Research & Analytical Skills",
+        "Real-World Connections",
+        "Regular Practice",
+        "Fun & Interactive Learning"
+      ],
       details: [
-        { title: "Modern History", points: ["Establishment of company power", "Colonialism", "1857 Revolt"] },
-        { title: "National Movement", points: ["Freedom struggle", "Women and reform", "Independence"] },
-        { title: "Geography: Resources", points: ["Land, soil, water", "Natural vegetation", "Mineral resources"] },
-        { title: "Agriculture & Industries", points: ["Farming types", "Major crops", "Industrial distribution"] },
-        { title: "Civics: Constitution", points: ["Key features", "Fundamental rights", "Secularism"] },
-        { title: "Judiciary & Law", points: ["Role of parliament", "Understanding laws", "Criminal justice system"] },
-        { title: "Social Justice", points: ["Marginalization", "Public facilities", "Government schemes"] },
-        { title: "Project Work", points: ["Disaster management", "Mock court", "Historical timelines"] }
+        {
+          title: "History & Civilization Studies",
+          points: [
+            "Learn about historical events, movements, and timelines",
+            "Understand causes, effects, and significance",
+            "Connect past events with present-day society"
+          ]
+        },
+        {
+          title: "Geography & Environment",
+          points: [
+            "Study resources, industries, climate, and landforms",
+            "Understand human-environment relationships",
+            "Learn through maps, visuals, and case studies"
+          ]
+        },
+        {
+          title: "Civics & Governance",
+          points: [
+            "Understand democracy, constitution, and governance",
+            "Learn about rights, duties, and responsibilities",
+            "Develop awareness of social and civic issues"
+          ]
+        },
+        {
+          title: "Historical Thinking & Timelines",
+          points: [
+            "Analyze events chronologically",
+            "Interpret historical sources and evidence",
+            "Develop critical historical thinking"
+          ]
+        },
+        {
+          title: "Research & Analytical Skills",
+          points: [
+            "Conduct small research and project work",
+            "Interpret data, maps, and texts",
+            "Build reasoning and analytical abilities"
+          ]
+        },
+        {
+          title: "Real-World Connections",
+          points: [
+            "Relate lessons to current affairs",
+            "Understand local, national, and global perspectives",
+            "Learn practical life and social skills"
+          ]
+        },
+        {
+          title: "Regular Practice",
+          points: [
+            "Worksheets, quizzes, and map work",
+            "Revision and reflection activities",
+            "Progress tracking"
+          ]
+        },
+        {
+          title: "Fun & Interactive Learning",
+          points: [
+            "Role-plays, simulations, and storytelling",
+            "Group discussions and collaborative projects",
+            "Engaging and activity-based learning"
+          ]
+        }
       ]
     }
   ],
+
+  /* =========================
+     CLASS 9
+  ========================= */
   "Class 9": [
     {
       subject: "Mathematics",
-      tagline: "Advanced Geometry & Statistics",
+      tagline: "Building Strong Foundations for Board Success & Logical Thinking",
       icon: Calculator,
       color: "text-blue-700",
       bg: "bg-blue-100",
-      summary: ["Polynomials", "Coordinate Geometry", "Euclid's Geometry", "Statistics"],
+      summary: [
+        "Number Systems & Algebraic Basics",
+        "Concept-Based Mathematical Learning",
+        "Linear Equations & Applications",
+        "Geometry & Proof-Based Learning",
+        "Coordinate Geometry",
+        "Statistics & Data Interpretation",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
       details: [
-        { title: "Number Systems", points: ["Irrational numbers", "Real number operations", "Exponents"] },
-        { title: "Polynomials", points: ["Remainder theorem", "Factorization", "Algebraic identities"] },
-        { title: "Coordinate Geometry", points: ["Cartesian plane", "Plotting points", "Quadrants"] },
-        { title: "Linear Equations", points: ["Two variables", "Graphing solutions", "Lines parallel to axes"] },
-        { title: "Geometry", points: ["Euclid's geometry", "Lines and angles", "Triangles and congruence"] },
-        { title: "Advanced Shapes", points: ["Quadrilaterals", "Circles", "Heron's formula"] },
-        { title: "Surface Area & Volume", points: ["Cones, spheres, cylinders", "Volume calculations", "SA calculations"] },
-        { title: "Statistics", points: ["Data collection", "Graphical representation", "Measures of central tendency"] }
-      ]
-    },
-    {
-      subject: "Science",
-      tagline: "Foundations of Physics & Chem",
-      icon: Beaker,
-      color: "text-teal-600",
-      bg: "bg-teal-100",
-      summary: ["Motion & Force", "Atoms & Molecules", "Cell Theory", "Work & Energy"],
-      details: [
-        { title: "Matter", points: ["States of matter", "Interconversion", "Evaporation and cooling"] },
-        { title: "Atoms & Molecules", points: ["Laws of chemical combination", "Atomic mass", "Mole concept"] },
-        { title: "Cell Structure", points: ["Fundamental unit of life", "Organelles", "Tissues"] },
-        { title: "Motion", points: ["Distance and displacement", "Equations of motion", "Uniform circular motion"] },
-        { title: "Force & Laws of Motion", points: ["Newton's laws", "Inertia and mass", "Conservation of momentum"] },
-        { title: "Gravitation", points: ["Universal law", "Free fall", "Mass vs Weight"] },
-        { title: "Work & Energy", points: ["Kinetic and potential energy", "Law of conservation", "Power"] },
-        { title: "Sound", points: ["Propagation", "Echo and reverberation", "Ultrasound applications"] }
-      ]
-    },
-    {
-      subject: "Social Science",
-      tagline: "World History & Economics",
-      icon: Globe,
-      color: "text-orange-600",
-      bg: "bg-orange-100",
-      summary: ["French Revolution", "Democracy", "Economics", "Drainage"],
-      details: [
-        { title: "History: World Events", points: ["The French Revolution", "Socialism in Europe", "Nazism and Hitler"] },
-        { title: "Geography: India", points: ["Size and location", "Physical features", "Drainage systems"] },
-        { title: "Geography: Climate", points: ["Monsoon mechanism", "Natural vegetation", "Population dynamics"] },
-        { title: "Civics: Democracy", points: ["What is Democracy?", "Constitutional design", "Electoral politics"] },
-        { title: "Institutions", points: ["Working of institutions", "Democratic rights", "Parliamentary procedures"] },
-        { title: "Economics: Village Story", points: ["Story of Village Palampur", "Factors of production", "Farming methods"] },
-        { title: "People as Resource", points: ["Economic activities", "Quality of population", "Unemployment"] },
-        { title: "Poverty & Security", points: ["Poverty as a challenge", "Food security in India", "PDS system"] }
+        {
+          title: "Number Systems & Algebraic Basics",
+          points: [
+            "Deep understanding of number systems and rational numbers",
+            "Introduction to polynomials and algebraic expressions",
+            "Strengthen accuracy, speed, and calculation confidence"
+          ]
+        },
+        {
+          title: "Concept-Based Mathematical Learning",
+          points: [
+            "Understand the logic behind formulas and methods",
+            "Apply algebraic concepts rather than memorizing steps",
+            "Build strong conceptual clarity for long-term retention"
+          ]
+        },
+        {
+          title: "Linear Equations & Applications",
+          points: [
+            "Solve linear equations in one and two variables",
+            "Apply concepts to real-life situations and word problems",
+            "Learn structured problem-solving techniques"
+          ]
+        },
+        {
+          title: "Geometry & Proof-Based Learning",
+          points: [
+            "Study lines, angles, triangles, and congruence",
+            "Learn logical reasoning through geometrical proofs",
+            "Develop step-by-step thinking and accuracy"
+          ]
+        },
+        {
+          title: "Coordinate Geometry",
+          points: [
+            "Understand Cartesian planes and plotting points",
+            "Apply coordinate geometry concepts confidently",
+            "Build analytical and spatial reasoning skills"
+          ]
+        },
+        {
+          title: "Statistics & Data Interpretation",
+          points: [
+            "Organize, represent, and interpret data",
+            "Understand graphical representation and analysis",
+            "Develop decision-making and analytical thinking"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Chapter-wise exercises and regular quizzes",
+            "Balanced mix of NCERT, application-based, and exam-style questions",
+            "Continuous progress tracking and feedback"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Visual explanations and interactive problem-solving",
+            "Concept-based quizzes and guided practice",
+            "Learn by applying, analysing, and reasoning"
+          ]
+        }
       ]
     },
     {
       subject: "English",
-      tagline: "Literary Analysis",
+      tagline: "Strengthening Language, Expression & Board Writing Skills",
       icon: PenTool,
       color: "text-pink-600",
       bg: "bg-pink-100",
-      summary: ["Beehive Prose", "Moments Reader", "Formal Letters", "Descriptive Writing"],
+      summary: [
+        "Vocabulary & Expression Enhancement",
+        "Grammar Proficiency",
+        "Reading Comprehension & Critical Analysis",
+        "Writing Skills Development",
+        "Listening & Speaking Skills",
+        "Literature Appreciation & Analysis",
+        "Regular Practice & Assessment",
+        "Interactive & Enjoyable Learning"
+      ],
       details: [
-        { title: "Prose Analysis", points: ["The Fun They Had", "Sound of Music", "Little Girl"] },
-        { title: "Poetry Appreciation", points: ["The Road Not Taken", "Wind", "Rain on the Roof"] },
-        { title: "Supplementary Reader", points: ["The Lost Child", "Adventures of Toto", "In the Kingdom of Fools"] },
-        { title: "Grammar Integrated", points: ["Gap filling", "Editing", "Omission"] },
-        { title: "Writing Skills", points: ["Descriptive paragraph (Person/Place)", "Diary entry", "Story writing"] },
-        { title: "Reading Skills", points: ["Discursive passages", "Case-based factual passages", "Visual interpretation"] },
-        { title: "Speaking & Listening", points: ["Assessment of speaking", "Listening comprehension", "Role plays"] },
-        { title: "Vocabulary", points: ["Word origins", "Literary terms", "Contextual usage"] }
+        {
+          title: "Vocabulary & Expression Enhancement",
+          points: [
+            "Build strong vocabulary through contextual learning",
+            "Improve word usage, sentence formation, and expression",
+            "Develop confidence in written and spoken English"
+          ]
+        },
+        {
+          title: "Grammar Proficiency",
+          points: [
+            "Master tenses, modals, clauses, and sentence structures",
+            "Learn accurate usage of grammar rules",
+            "Apply grammar effectively in exams and communication"
+          ]
+        },
+        {
+          title: "Reading Comprehension & Critical Analysis",
+          points: [
+            "Understand prose, poetry, and unseen passages",
+            "Develop inference and interpretation skills",
+            "Answer comprehension questions with clarity"
+          ]
+        },
+        {
+          title: "Writing Skills Development",
+          points: [
+            "Practice formal and creative writing formats",
+            "Letters, essays, story writing, and descriptive writing",
+            "Focus on structure, coherence, and grammatical accuracy"
+          ]
+        },
+        {
+          title: "Listening & Speaking Skills",
+          points: [
+            "Improve pronunciation, fluency, and confidence",
+            "Practice discussions, presentations, and spoken activities",
+            "Listening comprehension exercises"
+          ]
+        },
+        {
+          title: "Literature Appreciation & Analysis",
+          points: [
+            "Study NCERT prose and poetry in depth",
+            "Analyze themes, characters, and literary devices",
+            "Build exam-oriented answer-writing skills"
+          ]
+        },
+        {
+          title: "Regular Practice & Assessment",
+          points: [
+            "Grammar drills and vocabulary exercises",
+            "Writing practice and reading tasks",
+            "Periodic tests and progress reviews"
+          ]
+        },
+        {
+          title: "Interactive & Enjoyable Learning",
+          points: [
+            "Role-plays, discussions, and storytelling",
+            "Multimedia resources and language games",
+            "Creative and engaging language activities"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Interactive Science",
+      tagline: "Concept Clarity, Reasoning & Real-World Application",
+      icon: Beaker,
+      color: "text-teal-600",
+      bg: "bg-teal-100",
+      summary: [
+        "Strong Conceptual Foundations",
+        "Visual & Practical Learning",
+        "Scientific Thinking & Reasoning",
+        "Inquiry & Exploration",
+        "Real-World Applications",
+        "Reading & Research Skills",
+        "Consistent Practice",
+        "Fun & Engaging Learning"
+      ],
+      details: [
+        {
+          title: "Strong Conceptual Foundations",
+          points: [
+            "Clear understanding of Physics, Chemistry, and Biology",
+            "Focus on concepts, laws, and principles",
+            "Move beyond memorization to logical understanding"
+          ]
+        },
+        {
+          title: "Visual & Practical Learning",
+          points: [
+            "Experiments, demonstrations, and simulations",
+            "Learn through observation and analysis",
+            "Safe and structured practical exposure"
+          ]
+        },
+        {
+          title: "Scientific Thinking & Reasoning",
+          points: [
+            "Analyze problems step by step",
+            "Apply scientific laws and formulas correctly",
+            "Develop logical and analytical thinking"
+          ]
+        },
+        {
+          title: "Inquiry & Exploration",
+          points: [
+            "Encourage curiosity and questioning",
+            "Project-based and activity-based learning",
+            "Develop investigation and research skills"
+          ]
+        },
+        {
+          title: "Real-World Applications",
+          points: [
+            "Relate scientific concepts to daily life and technology",
+            "Understand how science impacts society",
+            "Apply learning practically"
+          ]
+        },
+        {
+          title: "Reading & Research Skills",
+          points: [
+            "Interpret scientific diagrams, data, and texts",
+            "Summarize observations and conclusions",
+            "Build independent learning habits"
+          ]
+        },
+        {
+          title: "Consistent Practice",
+          points: [
+            "Topic-wise tests, numericals, and worksheets",
+            "NCERT-based and application-oriented questions",
+            "Continuous evaluation and feedback"
+          ]
+        },
+        {
+          title: "Fun & Engaging Learning",
+          points: [
+            "Simulations, videos, and interactive modules",
+            "Group discussions and collaborative projects",
+            "Learning driven by curiosity and understanding"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Exploratory Social Studies",
+      tagline: "Understanding Society, Economy & Governance",
+      icon: Globe,
+      color: "text-orange-600",
+      bg: "bg-orange-100",
+      summary: [
+        "History & Social Change",
+        "Geography & Natural Environment",
+        "Civics & Political Awareness",
+        "Economics & Daily Life",
+        "Research & Analytical Skills",
+        "Real-World Connections",
+        "Regular Practice",
+        "Fun & Interactive Learning"
+      ],
+      details: [
+        {
+          title: "History & Social Change",
+          points: [
+            "Study historical events, movements, and revolutions",
+            "Understand causes, effects, and long-term impact",
+            "Develop chronological and analytical thinking"
+          ]
+        },
+        {
+          title: "Geography & Natural Environment",
+          points: [
+            "Learn about physical features, climate, and resources",
+            "Understand human-environment interaction",
+            "Use maps, diagrams, and case studies"
+          ]
+        },
+        {
+          title: "Civics & Political Awareness",
+          points: [
+            "Understand democracy, constitution, and governance",
+            "Learn about rights, duties, and political institutions",
+            "Build responsible citizenship values"
+          ]
+        },
+        {
+          title: "Economics & Daily Life",
+          points: [
+            "Understand basic economic concepts and systems",
+            "Learn how economies function in real life",
+            "Develop financial and social awareness"
+          ]
+        },
+        {
+          title: "Research & Analytical Skills",
+          points: [
+            "Conduct small research and project work",
+            "Interpret maps, data, and source-based questions",
+            "Strengthen reasoning and analytical abilities"
+          ]
+        },
+        {
+          title: "Real-World Connections",
+          points: [
+            "Relate lessons to current affairs",
+            "Understand national and global perspectives",
+            "Apply learning to everyday situations"
+          ]
+        },
+        {
+          title: "Regular Practice",
+          points: [
+            "Worksheets, quizzes, and map work",
+            "Revision and reflection activities",
+            "Progress tracking and feedback"
+          ]
+        },
+        {
+          title: "Fun & Interactive Learning",
+          points: [
+            "Role-plays, debates, and simulations",
+            "Group discussions and collaborative projects",
+            "Engaging and activity-based learning"
+          ]
+        }
       ]
     }
   ],
+
+  /* =========================
+     CLASS 10
+  ========================= */
   "Class 10": [
     {
       subject: "Mathematics",
-      tagline: "Board Exam Mastery",
+      tagline: "Mastering Concepts, Accuracy & Board Exam Excellence",
       icon: Calculator,
       color: "text-blue-700",
       bg: "bg-blue-100",
-      summary: ["Trigonometry", "Quadratic Eq", "Arithmetic Progression", "Circles"],
+      summary: [
+        "Strong Algebraic Foundations",
+        "Trigonometry Mastery",
+        "Geometry & Proof-Based Learning",
+        "Coordinate Geometry",
+        "Mensuration & Real-World Applications",
+        "Statistics & Probability",
+        "Consistent Board Practice",
+        "Smart & Engaging Learning"
+      ],
       details: [
-        { title: "Real Numbers", points: ["Fundamental theorem of arithmetic", "Irrational proofs", "LCM and HCF"] },
-        { title: "Polynomials", points: ["Zeroes and coefficients", "Division algorithm", "Quadratic graphs"] },
-        { title: "Linear Equations", points: ["Substitution method", "Elimination method", "Word problems"] },
-        { title: "Quadratic Equations", points: ["Nature of roots", "Quadratic formula", "Factorization"] },
-        { title: "Arithmetic Progressions", points: ["nth term", "Sum of n terms", "AP applications"] },
-        { title: "Trigonometry", points: ["Trig ratios", "Trig identities", "Heights and distances"] },
-        { title: "Circles & Construction", points: ["Tangents to a circle", "Lengths of tangents", "Geometric proofs"] },
-        { title: "Stats & Probability", points: ["Mean/Median/Mode of grouped data", "Ogive curves", "Events probability"] }
-      ]
-    },
-    {
-      subject: "Science",
-      tagline: "Advanced Concepts",
-      icon: Beaker,
-      color: "text-teal-600",
-      bg: "bg-teal-100",
-      summary: ["Reactions", "Electricity", "Life Processes", "Light"],
-      details: [
-        { title: "Chemical Reactions", points: ["Types of reactions", "Balancing equations", "Corrosion/Rancidity"] },
-        { title: "Acids, Bases, Salts", points: ["pH scale", "Salt families", "Chemical properties"] },
-        { title: "Metals & Non-Metals", points: ["Reactivity series", "Ionic compounds", "Metallurgy"] },
-        { title: "Carbon Compounds", points: ["Covalent bonding", "Saturated/Unsaturated", "Homologous series"] },
-        { title: "Life Processes", points: ["Nutrition", "Respiration", "Transportation", "Excretion"] },
-        { title: "Control & Coordination", points: ["Nervous system", "Hormones", "Reflex arc"] },
-        { title: "Light", points: ["Reflection (Mirrors)", "Refraction (Lenses)", "Human Eye"] },
-        { title: "Electricity & Magnetism", points: ["Ohm's law", "Series/Parallel", "Magnetic effects", "Motors"] }
-      ]
-    },
-    {
-      subject: "Social Science",
-      tagline: "India & Contemporary World",
-      icon: Globe,
-      color: "text-orange-600",
-      bg: "bg-orange-100",
-      summary: ["Nationalism", "Resources", "Power Sharing", "Manufacturing"],
-      details: [
-        { title: "History: Nationalism", points: ["Nationalism in Europe", "Nationalism in India", "Making of Global World"] },
-        { title: "History: Industrialization", points: ["Age of industrialization", "Print culture", "Modern world"] },
-        { title: "Geography: Resources", points: ["Resource planning", "Water resources", "Agriculture types"] },
-        { title: "Geography: Economy", points: ["Minerals and energy", "Manufacturing industries", "Lifelines of economy"] },
-        { title: "Civics: Power", points: ["Power sharing", "Federalism", "Gender, Religion, Caste"] },
-        { title: "Civics: Parties", points: ["Political parties", "Outcomes of democracy", "Challenges"] },
-        { title: "Economics: Development", points: ["Development indicators", "Sectors of economy", "Money and credit"] },
-        { title: "Economics: Globalization", points: ["MNCs", "Consumer rights", "Fair trade"] }
+        {
+          title: "Strong Algebraic Foundations",
+          points: [
+            "Deep understanding of polynomials, linear equations, and quadratic equations",
+            "Apply algebraic concepts accurately in board-level problems",
+            "Build confidence through systematic practice"
+          ]
+        },
+        {
+          title: "Trigonometry Mastery",
+          points: [
+            "Learn trigonometric ratios, identities, and applications",
+            "Understand heights and distances conceptually",
+            "Apply formulas correctly in exam-oriented questions"
+          ]
+        },
+        {
+          title: "Geometry & Proof-Based Learning",
+          points: [
+            "Study triangles, circles, and constructions in depth",
+            "Learn logical reasoning through step-by-step proofs",
+            "Improve accuracy and presentation for board answers"
+          ]
+        },
+        {
+          title: "Coordinate Geometry",
+          points: [
+            "Understand distance formula, section formula, and area of triangle",
+            "Apply concepts confidently in numerical problems",
+            "Develop spatial and analytical thinking"
+          ]
+        },
+        {
+          title: "Mensuration & Real-World Applications",
+          points: [
+            "Calculate surface areas and volumes of solids",
+            "Apply mensuration concepts to real-life situations",
+            "Improve numerical accuracy and speed"
+          ]
+        },
+        {
+          title: "Statistics & Probability",
+          points: [
+            "Learn statistical methods and data interpretation",
+            "Understand probability concepts clearly",
+            "Apply formulas correctly in board-style questions"
+          ]
+        },
+        {
+          title: "Consistent Board Practice",
+          points: [
+            "NCERT examples and exercise-based practice",
+            "Chapter-wise tests and mock exams",
+            "Time-bound practice and accuracy improvement"
+          ]
+        },
+        {
+          title: "Smart & Engaging Learning",
+          points: [
+            "Visual explanations and step-wise solutions",
+            "Guided practice and doubt-solving",
+            "Focus on clarity, confidence, and exam readiness"
+          ]
+        }
       ]
     },
     {
       subject: "English",
-      tagline: "Fluency & Literature",
+      tagline: "Board-Focused Communication, Writing & Expression Skills",
       icon: PenTool,
       color: "text-pink-600",
       bg: "bg-pink-100",
-      summary: ["First Flight", "Footprints Without Feet", "Analytical Paragraphs"],
+      summary: [
+        "Vocabulary & Expression Enhancement",
+        "Grammar Accuracy",
+        "Reading Comprehension & Analysis",
+        "Board-Pattern Writing Skills",
+        "Listening & Speaking Skills",
+        "Literature Deep-Dive",
+        "Regular Practice & Assessment",
+        "Interactive & Confidence-Building Learning"
+      ],
       details: [
-        { title: "Prose (First Flight)", points: ["Letter to God", "Nelson Mandela", "Two Stories about Flying"] },
-        { title: "Poetry", points: ["Dust of Snow", "Tiger in the Zoo", "The Ball Poem"] },
-        { title: "Supplementary Reader", points: ["Triumph of Surgery", "The Thief's Story", "The Midnight Visitor"] },
-        { title: "Reading Skills", points: ["Discursive passages", "Case-based analysis", "Vocab inference"] },
-        { title: "Writing: Formal", points: ["Letter to Editor", "Complaint letter", "Enquiry letter"] },
-        { title: "Writing: Analytical", points: ["Analyzing charts/graphs", "Data interpretation", "Paragraph structure"] },
-        { title: "Grammar Integrated", points: ["Tenses", "Modals", "Subject-verb concord"] },
-        { title: "Exam Preparation", points: ["Sample papers", "Time management", "Answer presentation"] }
+        {
+          title: "Vocabulary & Expression Enhancement",
+          points: [
+            "Strengthen vocabulary for effective writing",
+            "Improve sentence structure and expression",
+            "Develop confidence in written and spoken English"
+          ]
+        },
+        {
+          title: "Grammar Accuracy",
+          points: [
+            "Master grammar rules as per board requirements",
+            "Apply grammar correctly in writing tasks",
+            "Improve language precision and clarity"
+          ]
+        },
+        {
+          title: "Reading Comprehension & Analysis",
+          points: [
+            "In-depth study of prose, poetry, and unseen passages",
+            "Develop critical reading and interpretation skills",
+            "Answer board-style comprehension questions accurately"
+          ]
+        },
+        {
+          title: "Board-Pattern Writing Skills",
+          points: [
+            "Practice formal writing formats (letters, articles, reports)",
+            "Creative writing and literature-based answers",
+            "Focus on structure, coherence, and marks-oriented presentation"
+          ]
+        },
+        {
+          title: "Listening & Speaking Skills",
+          points: [
+            "Improve fluency, pronunciation, and confidence",
+            "Practice presentations and spoken activities",
+            "Strengthen communication skills"
+          ]
+        },
+        {
+          title: "Literature Deep-Dive",
+          points: [
+            "Complete NCERT literature coverage",
+            "Theme, character, and literary device analysis",
+            "Board-oriented answer writing techniques"
+          ]
+        },
+        {
+          title: "Regular Practice & Assessment",
+          points: [
+            "Writing practice and grammar drills",
+            "Reading exercises and tests",
+            "Periodic assessments and feedback"
+          ]
+        },
+        {
+          title: "Interactive & Confidence-Building Learning",
+          points: [
+            "Discussions, role-plays, and debates",
+            "Multimedia-supported learning",
+            "Stress-free preparation for board exams"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Science",
+      tagline: "Concept Mastery, Numericals & Board Exam Readiness",
+      icon: Beaker,
+      color: "text-teal-600",
+      bg: "bg-teal-100",
+      summary: [
+        "Strong Conceptual Foundations",
+        "Numericals, Diagrams & Practical Understanding",
+        "Scientific Reasoning & Application",
+        "Inquiry & Concept Application",
+        "Reading & Answer-Writing Skills",
+        "Consistent Practice & Revision",
+        "Board Exam Strategy",
+        "Engaging & Stress-Free Learning"
+      ],
+      details: [
+        {
+          title: "Strong Conceptual Foundations",
+          points: [
+            "Clear understanding of Physics, Chemistry, and Biology concepts",
+            "Focus on laws, reactions, and biological processes",
+            "Concept clarity over rote memorization"
+          ]
+        },
+        {
+          title: "Numericals, Diagrams & Practical Understanding",
+          points: [
+            "Step-by-step numericals in Physics and Chemistry",
+            "Accurate diagram practice in Biology",
+            "Proper explanation of experiments and reactions"
+          ]
+        },
+        {
+          title: "Scientific Reasoning & Application",
+          points: [
+            "Apply formulas and concepts in board-level questions",
+            "Develop logical reasoning and analytical skills",
+            "Strengthen problem-solving abilities"
+          ]
+        },
+        {
+          title: "Inquiry & Concept Application",
+          points: [
+            "Understand scientific concepts through real-life examples",
+            "Case-based and application-oriented learning",
+            "Strengthen exam confidence"
+          ]
+        },
+        {
+          title: "Reading & Answer-Writing Skills",
+          points: [
+            "Interpret scientific data, diagrams, and questions",
+            "Learn structured and precise answer writing",
+            "Focus on clarity and presentation"
+          ]
+        },
+        {
+          title: "Consistent Practice & Revision",
+          points: [
+            "NCERT-based questions and chapter tests",
+            "Revision modules and mock exams",
+            "Continuous performance tracking"
+          ]
+        },
+        {
+          title: "Board Exam Strategy",
+          points: [
+            "Time management techniques",
+            "Answer presentation and accuracy improvement",
+            "Focus on scoring and confidence"
+          ]
+        },
+        {
+          title: "Engaging & Stress-Free Learning",
+          points: [
+            "Visual explanations and interactive content",
+            "Guided revision and doubt-solving",
+            "Calm, confident preparation for boards"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Social Studies",
+      tagline: "Understanding Society, Economy & Governance for Board Success",
+      icon: Globe,
+      color: "text-orange-600",
+      bg: "bg-orange-100",
+      summary: [
+        "History & National Movements",
+        "Geography & Resources",
+        "Civics & Political Science",
+        "Economics & Real-Life Application",
+        "Source-Based & Case-Study Questions",
+        "Current Affairs & Real-World Connections",
+        "Regular Practice & Revision",
+        "Interactive & Engaging Learning"
+      ],
+      details: [
+        {
+          title: "History & National Movements",
+          points: [
+            "In-depth study of historical events and movements",
+            "Understand causes, effects, and significance",
+            "Answer-writing techniques for board exams"
+          ]
+        },
+        {
+          title: "Geography & Resources",
+          points: [
+            "Physical features, resources, industries, and maps",
+            "Map work and diagram-based understanding",
+            "Application of geographical concepts"
+          ]
+        },
+        {
+          title: "Civics & Political Science",
+          points: [
+            "Democracy, constitution, and political institutions",
+            "Rights, duties, and democratic values",
+            "Case-based learning and examples"
+          ]
+        },
+        {
+          title: "Economics & Real-Life Application",
+          points: [
+            "Understand economic concepts and systems",
+            "Apply learning to daily life and current affairs",
+            "Build financial and social awareness"
+          ]
+        },
+        {
+          title: "Source-Based & Case-Study Questions",
+          points: [
+            "Analyze data, maps, and source materials",
+            "Develop critical thinking and interpretation skills",
+            "Practice board-style questions"
+          ]
+        },
+        {
+          title: "Current Affairs & Real-World Connections",
+          points: [
+            "Link textbook concepts with real-world events",
+            "National and global perspectives",
+            "Concept clarity with relevance"
+          ]
+        },
+        {
+          title: "Regular Practice & Revision",
+          points: [
+            "Worksheets, map work, and tests",
+            "Revision and reflection exercises",
+            "Performance tracking and improvement"
+          ]
+        },
+        {
+          title: "Interactive & Engaging Learning",
+          points: [
+            "Debates, role-plays, and discussions",
+            "Collaborative learning activities",
+            "Confidence-building exam"
+          ]
+        }
       ]
     }
   ],
+
+  /* =========================
+     FUTURE TECH CURRICULUM
+  ========================= */
   "Future Tech": [
     {
       subject: "Coding Foundation",
