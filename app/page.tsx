@@ -159,17 +159,35 @@ const TiltHeroImage = ({
   const rotateY = useTransform(x, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   React.useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const xPct = e.clientX / window.innerWidth - 0.5;
-      const yPct = e.clientY / window.innerHeight - 0.5;
-      
-      x.set(xPct);
-      y.set(yPct);
-    };
+  // Mouse movement for desktop
+  const handleMouseMove = (e: MouseEvent) => {
+    const xPct = e.clientX / window.innerWidth - 0.5;
+    const yPct = e.clientY / window.innerHeight - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [x, y]);
+  // Device orientation for mobile
+  const handleOrientation = (e: DeviceOrientationEvent) => {
+    if (e.gamma === null || e.beta === null) return;
+    
+    // gamma: left/right tilt (-90 to 90)
+    // beta: front/back tilt (-180 to 180)
+    const xPct = Math.max(-0.5, Math.min(0.5, e.gamma / 45));
+    const yPct = Math.max(-0.5, Math.min(0.5, (e.beta - 45) / 45));
+    
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener('deviceorientation', handleOrientation);
+  
+  return () => {
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('deviceorientation', handleOrientation);
+  };
+}, [x, y]);
 
   return (
     <motion.div
