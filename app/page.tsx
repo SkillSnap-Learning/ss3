@@ -328,8 +328,8 @@ const FloatingBadge = ({ icon: Icon, text, className }: { icon: any, text: strin
 // ===========================================
 const LearningJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [cardProgress, setCardProgress] = useState<number[]>([0, 0, 0, 0]);
-  const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false, false]);
+  const [cardProgress, setCardProgress] = useState<number[]>([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false, false, false, false, false, false, false]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -371,8 +371,49 @@ const LearningJourney = () => {
       border: "border-blue-100",
       strokeColor: "#2563eb",
       title: "Structured Weekday Learning",
-      desc: "Classes run Monday to Friday with a personalized timetable. We include short 5–15 minute breaks between subjects to ensure students stay fresh and focused.",
-      extra: { type: "note", text: "✨ 24/7 Access: Missed a class? All lectures are available on weekends too.", color: "text-blue-800" }
+      bulletColor: "bg-blue-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Classes run Monday to Friday, but all lectures are accessible on weekends too.",
+          "Lectures are scheduled thoughtfully, not released all at once, to avoid boredom or confusion."
+        ] 
+      }
+    },
+    {
+      icon: Rocket,
+      color: "text-rose-600",
+      bgFront: "bg-gradient-to-br from-rose-100 to-rose-200",
+      bgBack: "bg-rose-50/50",
+      border: "border-rose-100",
+      strokeColor: "#e11d48",
+      title: "Step-by-Step Learning",
+      bulletColor: "bg-rose-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "We start from basic concepts and gradually move to advanced topics.",
+          "Students learn beyond school syllabus, not just NCERT, with advanced content and mock exercises.",
+          "AI-powered programs personalize the learning path for every student according to their capacity."
+        ] 
+      }
+    },
+    {
+      icon: Play,
+      color: "text-pink-600",
+      bgFront: "bg-gradient-to-br from-pink-100 to-pink-200",
+      bgBack: "bg-pink-50/50",
+      border: "border-pink-100",
+      strokeColor: "#db2777",
+      title: "Interactive & Engaging Lessons",
+      bulletColor: "bg-pink-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Lessons include visual graphics and playful videos to make concepts interesting and interactive.",
+          "Gamified learning with quizzes, puzzles, and fun activities keeps students motivated."
+        ] 
+      }
     },
     {
       icon: Clock,
@@ -381,15 +422,32 @@ const LearningJourney = () => {
       bgBack: "bg-orange-50/50",
       border: "border-orange-100",
       strokeColor: "#ea580c",
-      title: "The 50-Minute Power Cycle",
-      desc: "We don't do boring hour-long lectures. Every session is scientifically structured for maximum retention:",
+      title: "Optimized Lecture Structure",
+      bulletColor: "bg-orange-500",
       extra: { 
         type: "numbers", 
         items: [
-          { num: "35", label: "Mins Lecture (Visual & Interactive)", color: "text-orange-600", border: "border-orange-100" },
-          { num: "10", label: "Mins Quick Revision & Key Notes", color: "text-teal-600", border: "border-teal-100" },
-          { num: "05", label: "Mins Interactive Test", color: "text-purple-600", border: "border-purple-100" }
+          { num: "35", label: "25–35 minutes of lecture per subject", color: "text-orange-600", border: "border-orange-100" },
+          { num: "10", label: "5–10 minutes of quick revisions and key notes", color: "text-teal-600", border: "border-teal-100" },
+          { num: "10", label: "5–10 minutes of quick, interactive tests to reinforce learning", color: "text-purple-600", border: "border-purple-100" }
         ]
+      }
+    },
+    {
+      icon: BookOpen,
+      color: "text-amber-600",
+      bgFront: "bg-gradient-to-br from-amber-100 to-amber-200",
+      bgBack: "bg-amber-50/50",
+      border: "border-amber-100",
+      strokeColor: "#d97706",
+      title: "Daily Learning Support",
+      bulletColor: "bg-amber-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Students receive daily summary PDFs and quick notes sheets for easy revision.",
+          "Parents get daily insights about each subject, covering their child's learning and test performance."
+        ] 
       }
     },
     {
@@ -399,9 +457,49 @@ const LearningJourney = () => {
       bgBack: "bg-teal-50/50",
       border: "border-teal-100",
       strokeColor: "#0d9488",
-      title: 'The "Unlock" System',
-      desc: "We ensure strong foundations. A student cannot move to the next chapter until they clear the tests for the current one. No rushing, just mastering.",
-      extra: { type: "tags", items: ["Weekly Mini-Tests", "Quarterly Major Exams"] }
+      title: "Mastery-Based Progression",
+      bulletColor: "bg-teal-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "We do not move ahead to the next chapter unless a student clears all tests and revisions for the current chapter.",
+          "This ensures strong foundations before advancing."
+        ] 
+      }
+    },
+    {
+      icon: Users,
+      color: "text-indigo-600",
+      bgFront: "bg-gradient-to-br from-indigo-100 to-indigo-200",
+      bgBack: "bg-indigo-50/50",
+      border: "border-indigo-100",
+      strokeColor: "#4f46e5",
+      title: "Personalized Timetable & Breaks",
+      bulletColor: "bg-indigo-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Lessons follow a personalized timetable for each student.",
+          "Short 5–15 minute breaks are provided after each subject to relax and recharge."
+        ] 
+      }
+    },
+    {
+      icon: Award,
+      color: "text-cyan-600",
+      bgFront: "bg-gradient-to-br from-cyan-100 to-cyan-200",
+      bgBack: "bg-cyan-50/50",
+      border: "border-cyan-100",
+      strokeColor: "#0891b2",
+      title: "Continuous Assessment",
+      bulletColor: "bg-cyan-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Students take weekly and monthly mini-tests and quarterly major tests.",
+          "This ensures steady progress tracking and reinforces learning."
+        ] 
+      }
     },
     {
       icon: Code,
@@ -410,9 +508,15 @@ const LearningJourney = () => {
       bgBack: "bg-purple-50/50",
       border: "border-purple-100",
       strokeColor: "#9333ea",
-      title: "Weekend Innovation Labs",
-      desc: "Saturdays and Sundays are for builders. In our 2-hour practical sessions, students apply what they learned by building apps, websites, and solving real-world logic puzzles.",
-      extra: { type: "icon-note", text: "Hands-on projects, not theory.", icon: Rocket }
+      title: "Weekend Coding Classes",
+      bulletColor: "bg-purple-500",
+      extra: { 
+        type: "bullets", 
+        items: [
+          "Coding and practical experiments are conducted on weekends (2-hour sessions).",
+          "Hands-on projects develop problem-solving, creativity, and real-world application."
+        ] 
+      }
     }
   ];
 
@@ -420,7 +524,12 @@ const LearningJourney = () => {
     Calendar: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
     Clock: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2",
     Lock: "M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4",
-    Code: "M16 18l6-6-6-6M8 6l-6 6 6 6"
+    Code: "M16 18l6-6-6-6M8 6l-6 6 6 6",
+    Rocket: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z",
+    Play: "M5 3l14 9-14 9V3z",
+    BookOpen: "M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z",
+    Users: "M18 19v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 19v-2a4 4 0 0 0-3-4M16 1a4 4 0 0 1 0 8",
+    Award: "M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z"
   };
 
   return (
@@ -430,24 +539,21 @@ const LearningJourney = () => {
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold text-blue-950 mb-4">How You Learn</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We don't just teach; we structure your child's success. 
-              Structured, engaging, and personalized to each student's pace.
+              At Skillsnap Learning, we believe learning should be structured, engaging,  and personalized to each student’s pace and potential. Here’s how we  teach:
             </p>
           </FadeIn>
         </div>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 gap-8">
+        <div ref={containerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card, idx) => {
             const progress = cardProgress[idx] || 0;
-            const isFlipped = flippedCards[idx];
-            const rotateY = progress * 180; // 0 -> 180
             const Icon = card.icon;
             const iconName = Icon.displayName || Icon.name || '';
             
             return (
               <div
                 key={idx}
-                className="flip-card h-[400px] md:h-[380px]"
+                className="flip-card h-[340px]"
                 style={{ perspective: "2000px" }}
               >
                 <motion.div
@@ -455,7 +561,7 @@ const LearningJourney = () => {
                   style={{
                     transformStyle: "preserve-3d",
                   }}
-                  animate={{ rotateY }}
+                  animate={{ rotateY: progress * 180 }}
                   transition={{
                     type: "spring",
                     stiffness: 100,
@@ -464,106 +570,95 @@ const LearningJourney = () => {
                 >
                   {/* Front of card (preview - visible initially) */}
                   <div
-                    className={`absolute inset-0 ${card.bgFront} rounded-3xl p-8 border ${card.border} flex flex-col items-center justify-center`}
+                    className={`absolute inset-0 ${card.bgFront} rounded-2xl p-6 border ${card.border} flex flex-col items-center justify-center`}
                     style={{ 
                       backfaceVisibility: "hidden",
                       WebkitBackfaceVisibility: "hidden"
                     }}
                   >
-                    <div className={`w-20 h-20 bg-white/80 rounded-2xl shadow-lg flex items-center justify-center mb-4`}>
-                      <Icon size={40} className={card.color} />
+                    <div className="w-16 h-16 bg-white/80 rounded-xl shadow-lg flex items-center justify-center mb-4">
+                      <Icon size={32} className={card.color} />
                     </div>
-                    <h3 className="text-xl font-bold text-blue-950 text-center">{card.title}</h3>
-                    <p className="text-sm text-gray-500 mt-2">Scroll to reveal</p>
+                    <h3 className="text-lg font-bold text-blue-950 text-center">{card.title}</h3>
+                    <p className="text-xs text-gray-500 mt-2">Scroll to reveal</p>
                   </div>
 
                   {/* Back of card (content - revealed after flip) */}
-                  <div
-                    className={`absolute inset-0 ${card.bgBack} rounded-3xl p-8 border ${card.border} flex flex-col`}
-                    style={{ 
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)"
-                    }}
-                  >
-                    {/* Animated Icon - Continuous Loop */}
-                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6">
-                        <svg
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={card.strokeColor}
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <motion.path
-                            d={iconPaths[iconName] || iconPaths.Calendar}
-                            initial={{ pathLength: 0, opacity: 0 }}
-                            animate={progress >= 1 
-                                ? { pathLength: [0, 1, 1, 0], opacity: 1 } 
-                                : { pathLength: 0, opacity: 0 }
-                            }
-                            transition={progress >= 1 
-                                ? { 
-                                    pathLength: {
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        ease: "easeInOut",
-                                        times: [0, 0.4, 0.6, 1]
-                                    },
-                                    opacity: { duration: 0.3 }
-                                } 
-                                : { duration: 0.3 }
-                            }
-                            />
-                        </svg>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-blue-950 mb-3">{card.title}</h3>
-                    <p className="text-gray-600 mb-6 flex-grow text-sm">{card.desc}</p>
-                    
-                    {/* Extra Content */}
-                    {card.extra.type === "note" && (
-                      <div className={`bg-white p-4 rounded-xl text-sm font-semibold ${card.extra.color} border ${card.border}`}>
-                        {card.extra.text}
-                      </div>
-                    )}
-                    
-                    {card.extra.type === "numbers" && (
-                        <ul className="space-y-2">
-                            {card.extra.items?.map((item, i) => {
-                            const numItem = item as { num: string; label: string; color: string; border: string };
-                            return (
-                                <li key={i} className="flex items-center gap-3 text-sm text-gray-700">
-                                <span className={`w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold ${numItem.color} border ${numItem.border}`}>
-                                    {numItem.num}
-                                </span>
-                                <span className="text-xs">{numItem.label}</span>
-                                </li>
-                            );
-                            })}
-                        </ul>
-                    )}
-                    
-                    {card.extra.type === "tags" && (
-                    <div className="flex gap-2 flex-wrap">
-                        {card.extra.items?.map((tag, i) => (
-                        <span key={i} className="px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-bold">
-                            {tag as string}
-                        </span>
-                        ))}
-                    </div>
-                    )}
-                    
-                    {card.extra.type === "icon-note" && (
-                      <div className="bg-white p-4 rounded-xl text-sm font-semibold text-purple-800 border border-purple-100 flex items-center gap-2">
-                        {card.extra.icon && <card.extra.icon size={16} />}
-                        {card.extra.text}
-                      </div>
-                    )}
-                  </div>
+                <div
+                className={`absolute inset-0 ${card.bgBack} rounded-2xl p-6 border ${card.border} flex flex-col`}
+                style={{ 
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)"
+                }}
+                >
+                {/* Animated Icon - Continuous Loop */}
+                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3">
+                    <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={card.strokeColor}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="overflow-visible"
+                    >
+                    <motion.path
+                        d={iconPaths[iconName] || iconPaths.Calendar}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={progress >= 1 
+                        ? { pathLength: [0, 1, 1, 0], opacity: 1 } 
+                        : { pathLength: 0, opacity: 0 }
+                        }
+                        transition={progress >= 1 
+                        ? { 
+                            pathLength: {
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                times: [0, 0.4, 0.6, 1]
+                            },
+                            opacity: { duration: 0.3 }
+                            } 
+                        : { duration: 0.3 }
+                        }
+                    />
+                    </svg>
+                </div>
+                
+                <h3 className="text-lg font-bold text-blue-950 mb-3">{card.title}</h3>
+                
+                {/* Bullets */}
+                {card.extra.type === "bullets" && (
+                    <ul className="space-y-2 flex-grow">
+                    {card.extra.items?.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${card.bulletColor} mt-1.5 shrink-0`}></span>
+                        <span className="text-sm text-gray-700 leading-relaxed">{item as string}</span>
+                        </li>
+                    ))}
+                    </ul>
+                )}
+                
+                {/* Numbers */}
+                {card.extra.type === "numbers" && (
+                    <ul className="space-y-2 flex-grow">
+                    {card.extra.items?.map((item, i) => {
+                        const numItem = item as { num: string; label: string; color: string; border: string };
+                        return (
+                        <li key={i} className="flex items-center gap-2">
+                            <span className={`w-7 h-7 rounded-full bg-white flex items-center justify-center font-bold text-xs ${numItem.color} border ${numItem.border}`}>
+                            {numItem.num}
+                            </span>
+                            <span className="text-sm text-gray-700">{numItem.label}</span>
+                        </li>
+                        );
+                    })}
+                    </ul>
+                )}
+                </div>
                 </motion.div>
               </div>
             );
