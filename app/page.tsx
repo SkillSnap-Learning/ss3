@@ -664,6 +664,14 @@ const LearningJourney = () => {
             );
           })}
         </div>
+        {/* Closing Statement */}
+        <FadeIn>
+        <div className="mt-16 text-center max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 leading-relaxed">
+            At Skillsnap Learning, we blend <span className="text-blue-600 font-semibold">structure</span>, <span className="text-rose-600 font-semibold">personalization</span>, <span className="text-orange-600 font-semibold">interactivity</span>, and <span className="text-teal-600 font-semibold">continuous assessment</span> to ensure every student learns, enjoys, and excels beyond traditional school learning.
+            </p>
+        </div>
+        </FadeIn>
       </div>
     </section>
   );
