@@ -532,16 +532,19 @@ const LearningJourney = () => {
                     )}
                     
                     {card.extra.type === "numbers" && (
-                      <ul className="space-y-2">
-                        {card.extra.items?.map((item, i) => (
-                          <li key={i} className="flex items-center gap-3 text-sm text-gray-700">
-                            <span className={`w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold ${item.color} border ${item.border}`}>
-                              {item.num}
-                            </span>
-                            <span className="text-xs">{item.label}</span>
-                          </li>
-                        ))}
-                      </ul>
+                        <ul className="space-y-2">
+                            {card.extra.items?.map((item, i) => {
+                            const numItem = item as { num: string; label: string; color: string; border: string };
+                            return (
+                                <li key={i} className="flex items-center gap-3 text-sm text-gray-700">
+                                <span className={`w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold ${numItem.color} border ${numItem.border}`}>
+                                    {numItem.num}
+                                </span>
+                                <span className="text-xs">{numItem.label}</span>
+                                </li>
+                            );
+                            })}
+                        </ul>
                     )}
                     
                     {card.extra.type === "tags" && (
