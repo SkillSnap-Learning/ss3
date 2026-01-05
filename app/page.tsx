@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { CURRICULUM_DATA } from './curriculum1';
+import { CURRICULUM_DATA } from './curriculum';
 import { 
   CheckCircle, 
   BookOpen, 
