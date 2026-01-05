@@ -47,7 +47,9 @@ const AnimatedText = ({
   staggerDelay?: number;
   once?: boolean;
 }) => {
+  // Split by space but keep words with hyphens together
   const words = text.split(' ');
+  let charCount = 0;
   
   return (
     <motion.span 
@@ -56,39 +58,50 @@ const AnimatedText = ({
       whileInView="visible"
       viewport={{ once }}
     >
-      {words.map((word, wordIndex) => (
-        <span key={wordIndex} className="inline-block whitespace-nowrap">
-          {word.split('').map((char, charIndex) => {
-            const overallIndex = words.slice(0, wordIndex).join(' ').length + charIndex + wordIndex;
-            return (
-              <motion.span
-                key={charIndex}
-                className="inline-block"
-                variants={{
-                  hidden: { 
-                    opacity: 0, 
-                    y: 20,
-                    filter: "blur(10px)"
-                  },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    filter: "blur(0px)"
-                  }
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: delay + overallIndex * staggerDelay,
-                  ease: [0.2, 0.65, 0.3, 0.9]
-                }}
-              >
-                {char}
-              </motion.span>
-            );
-          })}
-          {wordIndex < words.length - 1 && <span>&nbsp;</span>}
-        </span>
-      ))}
+      {words.map((word, wordIndex) => {
+        const wordElement = (
+          <span key={wordIndex} className="inline-block">
+            {word.split('').map((char, charIndex) => {
+              const currentCharIndex = charCount + charIndex;
+              return (
+                <motion.span
+                  key={charIndex}
+                  className="inline-block"
+                  style={{ whiteSpace: 'pre' }}
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 20,
+                      filter: "blur(10px)"
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      filter: "blur(0px)"
+                    }
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    delay: delay + currentCharIndex * staggerDelay,
+                    ease: [0.2, 0.65, 0.3, 0.9]
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </span>
+        );
+        
+        charCount += word.length + 1; // +1 for space
+        
+        return (
+          <span key={wordIndex}>
+            {wordElement}
+            {wordIndex < words.length - 1 && <span>&nbsp;</span>}
+          </span>
+        );
+      })}
     </motion.span>
   );
 };
@@ -194,6 +207,7 @@ const AnimatedGradientText = ({
   delay?: number;
 }) => {
   const words = text.split(' ');
+  let charCount = 0;
   
   return (
     <motion.span 
@@ -202,39 +216,50 @@ const AnimatedGradientText = ({
       whileInView="visible"
       viewport={{ once: true }}
     >
-      {words.map((word, wordIndex) => (
-        <span key={wordIndex} className="inline-block whitespace-nowrap">
-          {word.split('').map((char, charIndex) => {
-            const overallIndex = words.slice(0, wordIndex).join(' ').length + charIndex + wordIndex;
-            return (
-              <motion.span
-                key={charIndex}
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500"
-                variants={{
-                  hidden: { 
-                    opacity: 0, 
-                    y: 20,
-                    filter: "blur(10px)"
-                  },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    filter: "blur(0px)"
-                  }
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: delay + overallIndex * 0.04,
-                  ease: [0.2, 0.65, 0.3, 0.9]
-                }}
-              >
-                {char}
-              </motion.span>
-            );
-          })}
-          {wordIndex < words.length - 1 && <span>&nbsp;</span>}
-        </span>
-      ))}
+      {words.map((word, wordIndex) => {
+        const wordElement = (
+          <span key={wordIndex} className="inline-block">
+            {word.split('').map((char, charIndex) => {
+              const currentCharIndex = charCount + charIndex;
+              return (
+                <motion.span
+                  key={charIndex}
+                  className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500"
+                  style={{ whiteSpace: 'pre' }}
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 20,
+                      filter: "blur(10px)"
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      filter: "blur(0px)"
+                    }
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    delay: delay + currentCharIndex * 0.04,
+                    ease: [0.2, 0.65, 0.3, 0.9]
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </span>
+        );
+        
+        charCount += word.length + 1;
+        
+        return (
+          <span key={wordIndex}>
+            {wordElement}
+            {wordIndex < words.length - 1 && <span>&nbsp;</span>}
+          </span>
+        );
+      })}
     </motion.span>
   );
 };
@@ -908,11 +933,13 @@ export default function SkillsnapLanding() {
             </motion.div>
             
             {/* ✨ ANIMATION 1: Character-by-character headline reveal */}
-            <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight text-blue-950 mb-6">
-              <AnimatedText text="Master the Syllabus." delay={0.2} />
-              <br/>
-              <AnimatedGradientText text="Crack the Future." delay={0.8} />
-            </h1>
+            <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight text-blue-950 mb-6">
+            <AnimatedText text="Where Fun, Skill-Focused," delay={0.2} />
+            <br/>
+            <AnimatedText text="and Effective Learning" delay={0.6} />
+            <br/>
+            <AnimatedGradientText text="Builds Real-World Excellence" delay={1.0} />
+          </h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
