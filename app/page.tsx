@@ -854,7 +854,7 @@ export default function SkillsnapLanding() {
             <img 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
-              className="h-[120px] w-auto object-contain" 
+              className="h-[150px] w-auto object-contain mt-4" 
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
