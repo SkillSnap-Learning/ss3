@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { CURRICULUM_DATA } from './curriculum';
+import { FAQ_DATA } from './faqs-data';
 import { 
   CheckCircle, 
   BookOpen, 
@@ -803,7 +804,7 @@ const AppDownload = () => {
                 }}
                 >
                 <img 
-                    src="/girl-holding-phone.png" 
+                    src="/girl-holding-phone.jpg" 
                     alt="Happy Indian student showing learning app on phone" 
                     className="w-full h-auto object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 group-[.is-zoomed]:scale-110 group-[.is-zoomed]:brightness-110"
                 />
@@ -1331,11 +1332,7 @@ export default function SkillsnapLanding() {
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-10 text-blue-950">Common Questions</h2>
           <div className="space-y-4">
-            {[
-              { q: "Is this a replacement for school?", a: "No, Skillsnap is a companion. We help students master their school syllabus so they score higher, while adding future skills like coding that schools often miss." },
-              { q: "How much time does a student need to spend?", a: "Just 40 minutes a day. We believe in smart learning, not long hours." },
-              { q: "Do you offer a free trial?", a: "We offer a free consultation call where we assess your child's current level and recommend the right path. We do not offer a free trial of the software itself." }
-            ].map((faq, i) => (
+            {FAQ_DATA.map((faq, i) => (
               <motion.div 
                 key={i} 
                 className="border border-gray-200 rounded-lg overflow-hidden"
