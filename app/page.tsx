@@ -21,7 +21,8 @@ import {
   Lock,
   Smartphone,
   Mail,
-  MapPin
+  MapPin,
+  Download
 } from 'lucide-react';
 
 const iconPaths: Record<string, string> = {
@@ -772,7 +773,7 @@ const AppDownload = () => {
                  </div>
                </button>
 
-               <button className="flex items-center gap-3 bg-white/20 text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-white/20 hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
+               <button className="flex items-center gap-3 bg-[#083e99] text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-white/20 hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
                  <img 
                   src="/app-play-store-logo.png" 
                   alt="App Store" 
@@ -880,6 +881,13 @@ export default function SkillsnapLanding() {
       bg: "bg-orange-100",
       title: "24x7 Mentor Support",
       desc: "Our mentors provide one-on-one support to ensure every learner stays on track with our modern Ed-Tech approach."
+    },
+    {
+      icon: Download,
+      color: "text-cyan-600",
+      bg: "bg-cyan-100",
+      title: "Downloadable Notes & Smart Revision Material",
+      desc: "Every concept is supported with structured notes and revision-ready resources, helping students revise efficiently and parents stay confident."
     }
   ];
 
