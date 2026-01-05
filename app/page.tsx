@@ -905,7 +905,7 @@ export default function SkillsnapLanding() {
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
-            <a href="#curriculum" className="hover:text-orange-600 transition-colors">Student’s Corner</a>
+            <a href="#students" className="hover:text-orange-600 transition-colors">Student’s Corner</a>
             <a href="#parents" className="hover:text-orange-600 transition-colors">Parent’s Corner</a>
             <button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button>
           </div>
@@ -1270,7 +1270,7 @@ export default function SkillsnapLanding() {
       <LearningJourney />
 
       {/* --- Student's Excitement --- */}
-      <section className="py-24 bg-blue-950 text-white relative overflow-hidden">
+      <section id="students" className="py-24 bg-blue-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" 
              style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
         </div>
@@ -1282,9 +1282,9 @@ export default function SkillsnapLanding() {
               <h2 className="text-4xl font-bold mt-2 mb-6">Learning that doesn't feel like a chore.</h2>
               <div className="space-y-8">
                 {[
-                  { title: "Gamified Learning", desc: "Earn badges, climb leaderboards, and unlock rewards for finishing homework." },
-                  { title: "Real Coding Projects", desc: "Don't just memorize. Build websites, games, and apps from Class 6." },
-                  { title: "Bite-sized Videos", desc: "Short, high-energy videos that explain complex Physics concepts in minutes." }
+                  { title: "Interactive & Gamified Learning", desc: "Learn through quizzes, challenges, and rewards that make studying enjoyable — not stressful." },
+                  { title: "Learn by Doing (Projects & Practice)", desc: "Apply concepts through real examples, mini-projects, and problem-solving — so learning actually sticks." },
+                  { title: "Short, Easy-to-Understand Lessons", desc: "Concepts are taught in small, focused lessons that are easy to grasp and quick to revise." }
                 ].map((item, i) => (
                   <FadeIn delay={i * 0.2} key={i}>
                     <div className="flex gap-4">
