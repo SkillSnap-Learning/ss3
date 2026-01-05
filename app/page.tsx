@@ -784,6 +784,7 @@ export default function SkillsnapLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("Class 6");
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [highlightForm, setHighlightForm] = useState(false);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -795,6 +796,14 @@ export default function SkillsnapLanding() {
 
   const scrollToContact = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+    // Trigger highlight after scroll completes
+    setTimeout(() => {
+    setHighlightForm(true);
+    // Remove highlight after 1 second
+    setTimeout(() => {
+      setHighlightForm(false);
+    }, 1000);
+  }, 500); // Wait for scroll to complete
   };
 
   const features = [
@@ -906,7 +915,14 @@ export default function SkillsnapLanding() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.6 }}
             >
-              <div id="contact-form" className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-md w-full mx-auto lg:mx-0 scroll-mt-24 text-left">
+              <div 
+                id="contact-form" 
+                className={`bg-white p-6 rounded-2xl shadow-xl border max-w-md w-full mx-auto lg:mx-0 scroll-mt-24 text-left transition-all duration-500 ${
+                  highlightForm 
+                    ? 'border-orange-500 ring-4 ring-orange-300 ring-opacity-50 shadow-2xl shadow-orange-200' 
+                    : 'border-gray-100'
+                }`}
+              >
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-blue-900">
                   <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
                   Get a Call Back
