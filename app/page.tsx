@@ -848,7 +848,7 @@ export default function SkillsnapLanding() {
     <div className="min-h-screen bg-white font-poppins text-gray-800 selection:bg-orange-200">
       
       {/* --- Navbar --- */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-white/60 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img 
@@ -858,8 +858,8 @@ export default function SkillsnapLanding() {
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
-            <a href="#curriculum" className="hover:text-orange-600 transition-colors">Courses</a>
-            <a href="#parents" className="hover:text-orange-600 transition-colors">For Parents</a>
+            <a href="#curriculum" className="hover:text-orange-600 transition-colors">Student’s Corner</a>
+            <a href="#parents" className="hover:text-orange-600 transition-colors">Parent’s Corner</a>
             <button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button>
           </div>
           <button 
