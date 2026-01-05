@@ -930,7 +930,7 @@ export default function SkillsnapLanding() {
                 <form className="space-y-3">
                   <input 
                     type="text" 
-                    placeholder="Parent's Name *"
+                    placeholder="Student's/Parent's Name *"
                     required 
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
                   <input 
@@ -939,6 +939,10 @@ export default function SkillsnapLanding() {
                     required
                     pattern='[0-9]{10}'
                     title='Please enter a valid 10-digit mobile number'
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                  <input 
+                    type="email" 
+                    placeholder="Email Address (optional)"
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
                   <select 
                     required
