@@ -330,6 +330,7 @@ const LearningJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [cardProgress, setCardProgress] = useState<number[]>([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false, false, false, false, false, false, false]);
+  const permanentlyFlippedRef = useRef<boolean[]>([false, false, false, false, false, false, false, false, false]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -339,21 +340,30 @@ const LearningJourney = () => {
       const windowHeight = window.innerHeight;
       
       const newProgress: number[] = [];
-      const newFlipped: boolean[] = [];
       
-      cards.forEach((card) => {
+      cards.forEach((card, index) => {
+        // If already permanently flipped, keep it at 1
+        if (permanentlyFlippedRef.current[index]) {
+          newProgress.push(1);
+          return;
+        }
+        
         const cardRect = card.getBoundingClientRect();
         const cardTop = cardRect.top;
         
         const progress = Math.max(0, Math.min(1,
           (windowHeight * 0.95 - cardTop) / (windowHeight * 0.25)
         ));
+        
+        // Once fully flipped, mark as permanently flipped
+        if (progress >= 1) {
+          permanentlyFlippedRef.current[index] = true;
+        }
+        
         newProgress.push(progress);
-        newFlipped.push(progress > 0.5);
       });
       
       setCardProgress(newProgress);
-      setFlippedCards(newFlipped);
     };
     
     window.addEventListener('scroll', handleScroll);
