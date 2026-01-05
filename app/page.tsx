@@ -773,7 +773,7 @@ const AppDownload = () => {
                  </div>
                </button>
 
-               <button className="flex items-center gap-3 bg-[#083e99] text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-white/20 hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
+               <button className="flex items-center gap-3 bg-[#083e99] text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-[#083e99] hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
                  <img 
                   src="/app-play-store-logo.png" 
                   alt="App Store" 
