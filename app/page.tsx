@@ -1306,7 +1306,7 @@ export default function SkillsnapLanding() {
                             <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-rose-50 rounded-xl border border-yellow-200">
                               <h4 className="text-sm font-bold text-yellow-800 mb-3 flex items-center gap-2">
                                 <span className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xs">
-                                  ★
+                                  <Award size={12} className="text-white" />
                                 </span>
                                 What Your Child Will Achieve
                               </h4>
