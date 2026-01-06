@@ -346,6 +346,56 @@ export const CURRICULUM_DATA: Record<string, any> = {
           ]
         }
       ]
+    },
+    {
+      subject: "Coding",
+      tagline: "Logic, Algorithms & Creative Coding",
+      icon: Code,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      isCoding: true,
+      summary: [
+        "Computational Thinking",
+        "Visual Coding (Advanced Scratch)",
+        "Logic to Text Bridge",
+        "Mini Projects & Games"
+      ],
+      details: [
+        {
+          title: "Computational Thinking",
+          points: [
+            "How computers 'think'",
+            "Decomposition & pattern recognition",
+            "Algorithm writing (daily-life → code logic)",
+            "Flowcharts & decision trees"
+          ]
+        },
+        {
+          title: "Visual Coding (Advanced Scratch)",
+          points: [
+            "Event-driven programming",
+            "Loops & nested loops",
+            "Conditions & variables",
+            "Game logic (score, levels, lives)"
+          ]
+        },
+        {
+          title: "Logic → Text Bridge",
+          points: [
+            "Pseudocode writing",
+            "Converting Scratch logic to text logic",
+            "Introduction to Python syntax (no heavy theory)"
+          ]
+        },
+        {
+          title: "Mini Projects",
+          points: [
+            "Logic-based games",
+            "Animated storytelling with rules",
+            "Quiz & puzzle creators"
+          ]
+        }
+      ]
     }
   ],
 
@@ -681,6 +731,56 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Role-plays, simulations, and storytelling",
             "Group discussions and collaborative projects",
             "Engaging and activity-based learning"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Coding",
+      tagline: "Core Programming with Python",
+      icon: Code,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      isCoding: true,
+      summary: [
+        "Python Programming (Core)",
+        "Problem Solving & Debugging",
+        "Data Handling Basics",
+        "Real-Life Coding Projects"
+      ],
+      details: [
+        {
+          title: "Python Programming (Core)",
+          points: [
+            "Variables & data types",
+            "Input–output operations",
+            "Conditional statements",
+            "Loops (for, while)"
+          ]
+        },
+        {
+          title: "Problem Solving",
+          points: [
+            "Writing algorithms in Python",
+            "Pattern problems",
+            "Number logic & decision problems",
+            "Debugging mindset"
+          ]
+        },
+        {
+          title: "Data Handling Basics",
+          points: [
+            "Lists & strings",
+            "Basic data manipulation",
+            "Simple calculators & converters"
+          ]
+        },
+        {
+          title: "Real-Life Coding Projects",
+          points: [
+            "Password checker",
+            "Marks analysis system",
+            "Number guessing game"
           ]
         }
       ]
@@ -1022,6 +1122,56 @@ export const CURRICULUM_DATA: Record<string, any> = {
           ]
         }
       ]
+    },
+    {
+      subject: "Coding",
+      tagline: "Application Development & Web Foundations",
+      icon: Code,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      isCoding: true,
+      summary: [
+        "Python (Intermediate)",
+        "Web Development (HTML + CSS)",
+        "Introduction to Automation",
+        "Real-World Projects"
+      ],
+      details: [
+        {
+          title: "Python (Intermediate)",
+          points: [
+            "Functions & modular programming",
+            "Dictionaries & tuples",
+            "File handling (read/write)",
+            "Error handling"
+          ]
+        },
+        {
+          title: "Web Development (HTML + CSS)",
+          points: [
+            "Website structure & layout",
+            "Styling & design logic",
+            "Responsive basics",
+            "Personal website creation"
+          ]
+        },
+        {
+          title: "Introduction to Automation",
+          points: [
+            "Simple automation ideas",
+            "Python-based utilities",
+            "Real-life problem solving"
+          ]
+        },
+        {
+          title: "Projects",
+          points: [
+            "Student management system",
+            "Quiz web app",
+            "Portfolio website"
+          ]
+        }
+      ]
     }
   ],
 
@@ -1360,6 +1510,56 @@ export const CURRICULUM_DATA: Record<string, any> = {
           ]
         }
       ]
+    },
+    {
+      subject: "Coding",
+      tagline: "Advanced Programming & Modern Tech",
+      icon: Code,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      isCoding: true,
+      summary: [
+        "Python (Advanced) & OOP",
+        "Data & Databases (SQL)",
+        "Web Development (Advanced)",
+        "Emerging Technologies (AI, ML, Cloud)"
+      ],
+      details: [
+        {
+          title: "Python (Advanced)",
+          points: [
+            "Object-Oriented Programming",
+            "Classes & objects",
+            "Inheritance (conceptual)",
+            "Code optimization"
+          ]
+        },
+        {
+          title: "Data & Databases",
+          points: [
+            "What is data?",
+            "SQL fundamentals",
+            "Python + database connection (intro)"
+          ]
+        },
+        {
+          title: "Web Development (Advanced)",
+          points: [
+            "HTML5 & CSS layouts",
+            "CSS components & responsive design",
+            "Intro to JavaScript (logic, events)"
+          ]
+        },
+        {
+          title: "Emerging Technologies",
+          points: [
+            "Artificial Intelligence (how it works)",
+            "Machine Learning (conceptual)",
+            "Cybersecurity basics",
+            "Cloud computing overview"
+          ]
+        }
+      ]
     }
   ],
 
@@ -1695,6 +1895,56 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Debates, role-plays, and discussions",
             "Collaborative learning activities",
             "Confidence-building exam"
+          ]
+        }
+      ]
+    },
+    {
+      subject: "Coding",
+      tagline: "AI, Full-Stack Thinking & Career Readiness",
+      icon: Code,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      isCoding: true,
+      summary: [
+        "Advanced Applications & APIs",
+        "Full-Stack Basics",
+        "AI & Data Science Foundations",
+        "Capstone Projects & Portfolio"
+      ],
+      details: [
+        {
+          title: "Advanced Applications",
+          points: [
+            "Python automation",
+            "API concepts",
+            "Mini backend logic"
+          ]
+        },
+        {
+          title: "Full-Stack Basics",
+          points: [
+            "Frontend logic (HTML, CSS, JS)",
+            "Interactive websites",
+            "Form handling & validations"
+          ]
+        },
+        {
+          title: "AI & Data Science Foundations",
+          points: [
+            "Data analysis mindset",
+            "Visualization concepts",
+            "AI ethics & responsible tech",
+            "Real-life AI use cases"
+          ]
+        },
+        {
+          title: "Innovation & Capstone Projects",
+          points: [
+            "App / website / AI project",
+            "Startup & problem-solving mindset",
+            "GitHub basics",
+            "Portfolio building & presentation"
           ]
         }
       ]

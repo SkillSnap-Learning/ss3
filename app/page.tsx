@@ -824,7 +824,7 @@ const AppDownload = () => {
 export default function SkillsnapLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("Class 6");
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [expandedCard, setExpandedCard] = useState<number | string | null>(null);
   const [highlightForm, setHighlightForm] = useState(false);
 
   const toggleFaq = (index: number) => {
@@ -1171,88 +1171,193 @@ export default function SkillsnapLanding() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 gap-8 items-start" 
             >
-              {CURRICULUM_DATA[activeTab]?.length > 0 ? (
-                CURRICULUM_DATA[activeTab].map((card: any, idx: number) => (
-                  <div key={idx} className={`bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 overflow-hidden ${expandedCard === idx ? 'ring-2 ring-orange-100' : ''}`}>
-                    <div className="p-8">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center shrink-0`}>
-                          <card.icon size={24} className={card.color} />
+              {/* Academic Subjects - 2x2 Grid */}
+              <div className="grid md:grid-cols-2 gap-6 items-start">
+                {CURRICULUM_DATA[activeTab]?.filter((card: any) => !card.isCoding).length > 0 ? (
+                  CURRICULUM_DATA[activeTab].filter((card: any) => !card.isCoding).map((card: any, idx: number) => (
+                    <div key={idx} className={`bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 overflow-hidden ${expandedCard === idx ? 'ring-2 ring-orange-100' : ''}`}>
+                      <div className="p-8">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center shrink-0`}>
+                            <card.icon size={24} className={card.color} />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-gray-800">{card.subject}</h3>
+                            {card.tagline && <p className="text-xs text-gray-500 font-medium italic mt-1">{card.tagline}</p>}
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-800">{card.subject}</h3>
-                          {card.tagline && <p className="text-xs text-gray-500 font-medium italic mt-1">{card.tagline}</p>}
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-3 mb-6">
-                        {card.summary.map((topic: string, i: number) => (
-                          <li key={i} className="flex items-start gap-3 text-gray-600">
-                            <CheckCircle size={18} className="text-teal-500 mt-1 shrink-0" />
-                            <span className="text-sm font-medium">{topic}</span>
-                          </li>
-                        ))}
-                      </ul>
+                        
+                        <ul className="space-y-3 mb-6">
+                          {card.summary.map((topic: string, i: number) => (
+                            <li key={i} className="flex items-start gap-3 text-gray-600">
+                              <CheckCircle size={18} className="text-teal-500 mt-1 shrink-0" />
+                              <span className="text-sm font-medium">{topic}</span>
+                            </li>
+                          ))}
+                        </ul>
 
-                      <button 
-                        onClick={() => toggleCard(idx)}
-                        className="w-full py-3 rounded-xl border border-gray-200 text-gray-700 font-bold text-sm hover:bg-gray-50 hover:text-blue-900 transition-colors flex items-center justify-center gap-2 group"
-                      >
-                        {expandedCard === idx ? (
-                          <>Hide Curriculum <ChevronUp size={16} /></>
-                        ) : (
-                          <>View Detailed Curriculum <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" /></>
-                        )}
-                      </button>
-                    </div>
-
-                    <AnimatePresence>
-                      {expandedCard === idx && card.details && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="bg-gray-50 border-t border-gray-100"
+                        <button 
+                          onClick={() => toggleCard(idx)}
+                          className="w-full py-3 rounded-xl border border-gray-200 text-gray-700 font-bold text-sm hover:bg-gray-50 hover:text-blue-900 transition-colors flex items-center justify-center gap-2 group"
                         >
-                          <div className="p-8 pt-4 space-y-8">
-                            <div className="flex items-center justify-center">
-                               <span className="bg-white border border-gray-200 px-4 py-1 rounded-full text-xs font-bold text-gray-400 uppercase tracking-widest">Full Syllabus</span>
-                            </div>
-                            
-                            {card.details.map((section: any, sIdx: number) => (
-                              <div key={sIdx}>
-                                <h4 className={`text-lg font-bold mb-3 flex items-center gap-2 ${card.color}`}>
-                                  <span className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs text-gray-500 shadow-sm">{sIdx + 1}</span>
-                                  {section.title}
-                                </h4>
-                                <ul className="space-y-2 ml-8 border-l-2 border-gray-200 pl-4">
-                                  {section.points.map((pt: string, pIdx: number) => (
-                                    <li key={pIdx} className="text-sm text-gray-600 leading-relaxed relative">
-                                      <span className="absolute -left-[21px] top-2 w-2 h-2 rounded-full bg-gray-300"></span>
-                                      {pt}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
+                          {expandedCard === idx ? (
+                            <>Hide Curriculum <ChevronUp size={16} /></>
+                          ) : (
+                            <>View Detailed Curriculum <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" /></>
+                          )}
+                        </button>
+                      </div>
 
-                            <div className="pt-4 text-center">
-                               <button onClick={scrollToContact} className="text-orange-600 font-bold hover:underline text-sm">
+                      <AnimatePresence>
+                        {expandedCard === idx && card.details && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="bg-gray-50 border-t border-gray-100"
+                          >
+                            <div className="p-8 pt-4 space-y-8">
+                              <div className="flex items-center justify-center">
+                                <span className="bg-white border border-gray-200 px-4 py-1 rounded-full text-xs font-bold text-gray-400 uppercase tracking-widest">Full Syllabus</span>
+                              </div>
+                              
+                              {card.details.map((section: any, sIdx: number) => (
+                                <div key={sIdx}>
+                                  <h4 className={`text-lg font-bold mb-3 flex items-center gap-2 ${card.color}`}>
+                                    <span className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs text-gray-500 shadow-sm">{sIdx + 1}</span>
+                                    {section.title}
+                                  </h4>
+                                  <ul className="space-y-2 ml-8 border-l-2 border-gray-200 pl-4">
+                                    {section.points.map((pt: string, pIdx: number) => (
+                                      <li key={pIdx} className="text-sm text-gray-600 leading-relaxed relative">
+                                        <span className="absolute -left-[21px] top-2 w-2 h-2 rounded-full bg-gray-300"></span>
+                                        {pt}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+
+                              <div className="pt-4 text-center">
+                                <button onClick={scrollToContact} className="text-orange-600 font-bold hover:underline text-sm">
                                   Download PDF Syllabus
-                               </button>
+                                </button>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-2 text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300">
+                    <p className="text-gray-500 text-lg">Curriculum coming soon!</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Coding Section - Full Width Featured Card */}
+              {CURRICULUM_DATA[activeTab]?.find((card: any) => card.isCoding) && (
+                <div className="mt-8">
+                  {/* Section Header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase tracking-wide">
+                      <Rocket size={14} />
+                      Future Skills
+                    </span>
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+                  </div>
+
+                  {(() => {
+                    const codingCard = CURRICULUM_DATA[activeTab].find((card: any) => card.isCoding);
+                    return (
+                      <div className={`bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-sm border border-purple-100 hover:shadow-lg transition-all duration-300 overflow-hidden ${expandedCard === 'coding' ? 'ring-2 ring-purple-200' : ''}`}>
+                        <div className="p-8">
+                          <div className="flex flex-col md:flex-row md:items-start gap-6">
+                            {/* Left: Icon and Title */}
+                            <div className="flex items-center gap-4 md:w-1/3">
+                              <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
+                                <Code size={28} className="text-purple-600" />
+                              </div>
+                              <div>
+                                <h3 className="text-2xl font-bold text-gray-800">{codingCard.subject}</h3>
+                                <p className="text-sm text-purple-600 font-medium mt-1">{codingCard.tagline}</p>
+                              </div>
+                            </div>
+
+                            {/* Right: Summary Points */}
+                            <div className="md:w-2/3">
+                              <ul className="grid sm:grid-cols-2 gap-3">
+                                {codingCard.summary.map((topic: string, i: number) => (
+                                  <li key={i} className="flex items-start gap-3 text-gray-600">
+                                    <CheckCircle size={18} className="text-purple-500 mt-0.5 shrink-0" />
+                                    <span className="text-sm font-medium">{topic}</span>
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))
-              ) : (
-                <div className="col-span-2 text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300">
-                  <p className="text-gray-500 text-lg">Curriculum coming soon!</p>
+
+                          <button 
+                            onClick={() => setExpandedCard(expandedCard === 'coding' ? null : 'coding')}
+                            className="w-full mt-6 py-3 rounded-xl border border-purple-200 text-purple-700 font-bold text-sm hover:bg-purple-50 transition-colors flex items-center justify-center gap-2 group"
+                          >
+                            {expandedCard === 'coding' ? (
+                              <>Hide Curriculum <ChevronUp size={16} /></>
+                            ) : (
+                              <>View Detailed Curriculum <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" /></>
+                            )}
+                          </button>
+                        </div>
+
+                        <AnimatePresence>
+                          {expandedCard === 'coding' && codingCard.details && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              className="bg-purple-50/50 border-t border-purple-100"
+                            >
+                              <div className="p-8 pt-4 space-y-8">
+                                <div className="flex items-center justify-center">
+                                  <span className="bg-white border border-purple-200 px-4 py-1 rounded-full text-xs font-bold text-purple-400 uppercase tracking-widest">Full Syllabus</span>
+                                </div>
+                                
+                                <div className="grid md:grid-cols-2 gap-8">
+                                  {codingCard.details.map((section: any, sIdx: number) => (
+                                    <div key={sIdx}>
+                                      <h4 className="text-lg font-bold mb-3 flex items-center gap-2 text-purple-600">
+                                        <span className="w-6 h-6 rounded-full bg-white border border-purple-200 flex items-center justify-center text-xs text-purple-500 shadow-sm">{sIdx + 1}</span>
+                                        {section.title}
+                                      </h4>
+                                      <ul className="space-y-2 ml-8 border-l-2 border-purple-200 pl-4">
+                                        {section.points.map((pt: string, pIdx: number) => (
+                                          <li key={pIdx} className="text-sm text-gray-600 leading-relaxed relative">
+                                            <span className="absolute -left-[21px] top-2 w-2 h-2 rounded-full bg-purple-300"></span>
+                                            {pt}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                </div>
+
+                                <div className="pt-4 text-center">
+                                  <button onClick={scrollToContact} className="text-purple-600 font-bold hover:underline text-sm">
+                                    Download PDF Syllabus
+                                  </button>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
             </motion.div>
