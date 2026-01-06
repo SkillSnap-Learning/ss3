@@ -23,7 +23,8 @@ import {
   Smartphone,
   Mail,
   MapPin,
-  Download
+  Download,
+  Phone
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -1027,7 +1028,7 @@ export default function SkillsnapLanding() {
             className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100"
             >
                 <img 
-                src="/hero-student-logo.png" 
+                src="/final-hero-image.png" 
                 alt="Happy student holding tablet showing coding project" 
                 className="w-full h-full object-cover object-[70%_center]"
                 />
@@ -1520,9 +1521,24 @@ export default function SkillsnapLanding() {
             <div>
                 <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
                 <ul className="space-y-4">
-                <li><a href="#" className="hover:text-orange-600 transition-colors">About Us</a></li>
-                <li><button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button></li>
-                <li><a href="mailto:hello@skillsnap.com" className="hover:text-orange-600 transition-colors">Email Us</a></li>
+                    <li>
+                        <a href="#" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                            <Users size={16} />
+                            <span>About Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button onClick={scrollToContact} className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                            <Phone size={16} />
+                            <span>Contact Us</span>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="mailto:hello@skillsnap.com" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                            <Mail size={16} />
+                            <span>Email Us</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
