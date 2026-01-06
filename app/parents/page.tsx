@@ -146,7 +146,7 @@ export default function ParentsCorner() {
             <FadeIn delay={0.2}>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/parent-child-learning.png" 
+                  src="/parents-teaching-child.png" 
                   alt="Parent and child learning together" 
                   className="w-full h-auto object-cover"
                 />
