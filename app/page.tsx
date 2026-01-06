@@ -25,6 +25,7 @@ import {
   MapPin,
   Download
 } from 'lucide-react';
+import Link from 'next/link';
 
 const iconPaths: Record<string, string> = {
   Calendar: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
@@ -906,8 +907,8 @@ export default function SkillsnapLanding() {
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
-            <a href="#students" className="hover:text-orange-600 transition-colors">Student’s Corner</a>
-            <a href="#parents" className="hover:text-orange-600 transition-colors">Parent’s Corner</a>
+            <Link href="/students" className="hover:text-orange-600 transition-colors">Student's Corner</Link>
+            <Link href="/parents" className="hover:text-orange-600 transition-colors">Parent's Corner</Link>
             <button onClick={scrollToContact} className="hover:text-orange-600 transition-colors">Contact Us</button>
           </div>
           <button 
