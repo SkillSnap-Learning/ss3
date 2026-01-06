@@ -1301,6 +1301,26 @@ export default function SkillsnapLanding() {
                             </div>
                           </div>
 
+                          {/* Outcomes Section - Orange Theme */}
+                          {codingCard.outcomes && (
+                            <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-rose-50 rounded-xl border border-yellow-200">
+                              <h4 className="text-sm font-bold text-yellow-800 mb-3 flex items-center gap-2">
+                                <span className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xs">
+                                  ★
+                                </span>
+                                What Your Child Will Achieve
+                              </h4>
+                              <ul className="grid sm:grid-cols-3 gap-2">
+                                {codingCard.outcomes.map((outcome: string, i: number) => (
+                                  <li key={i} className="flex items-center gap-2 text-sm text-yellow-900">
+                                    <CheckCircle size={16} className="text-yellow-500 shrink-0" />
+                                    <span>{outcome}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
                           <button 
                             onClick={() => setExpandedCard(expandedCard === 'coding' ? null : 'coding')}
                             className="w-full mt-6 py-3 rounded-xl border border-purple-200 text-purple-700 font-bold text-sm hover:bg-purple-50 transition-colors flex items-center justify-center gap-2 group"

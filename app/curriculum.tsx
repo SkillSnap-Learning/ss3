@@ -395,6 +395,11 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Quiz & puzzle creators"
           ]
         }
+      ],
+      outcomes: [
+        "Strong logical thinking",
+        "Comfort with programming structure",
+        "Creativity + rules-based thinking"
       ]
     }
   ],
@@ -783,6 +788,11 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Number guessing game"
           ]
         }
+      ],
+      outcomes: [
+        "Fluent in Python basics",
+        "Logical & analytical thinking",
+        "Confidence to write code independently"
       ]
     }
   ],
@@ -1171,6 +1181,11 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Portfolio website"
           ]
         }
+      ],
+      outcomes: [
+        "Application-oriented coding",
+        "Creative + technical balance",
+        "Exposure to development mindset"
       ]
     }
   ],
@@ -1559,6 +1574,11 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Cloud computing overview"
           ]
         }
+      ],
+      outcomes: [
+        "Advanced coding logic",
+        "Understanding of real tech stack",
+        "Future-oriented skills"
       ]
     }
   ],
@@ -1947,6 +1967,11 @@ export const CURRICULUM_DATA: Record<string, any> = {
             "Portfolio building & presentation"
           ]
         }
+      ],
+      outcomes: [
+        "Tech-career clarity",
+        "Portfolio-ready student",
+        "Strong base for Class 11, IIT-JEE CS, startups"
       ]
     }
   ],
