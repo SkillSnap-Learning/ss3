@@ -1077,19 +1077,19 @@ export default function SkillsnapLanding() {
             <div>
                 <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
                 <ul className="space-y-4">
-                    <li>
+                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
                         <a href="#" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                             <Users size={16} />
                             <span>About Us</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
                         <button onClick={scrollToContact} className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                             <Phone size={16} />
                             <span>Contact Us</span>
                         </button>
                     </li>
-                    <li>
+                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
                         <a href="mailto:hello@skillsnap.com" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                             <Mail size={16} />
                             <span>Email Us</span>
