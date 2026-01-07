@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { CURRICULUM_DATA } from './curriculum';
@@ -326,7 +326,9 @@ const LearningJourney = () => {
   const permanentlyFlippedRef = useRef<boolean[]>([false, false, false, false, false, false, false, false, false]);
   
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    
+    const updateCardProgress = () => {
       if (!containerRef.current) return;
       
       const cards = containerRef.current.querySelectorAll('.flip-card');
@@ -335,7 +337,6 @@ const LearningJourney = () => {
       const newProgress: number[] = [];
       
       cards.forEach((card, index) => {
-        // If already permanently flipped, keep it at 1
         if (permanentlyFlippedRef.current[index]) {
           newProgress.push(1);
           return;
@@ -348,7 +349,6 @@ const LearningJourney = () => {
           (windowHeight * 0.95 - cardTop) / (windowHeight * 0.25)
         ));
         
-        // Once fully flipped, mark as permanently flipped
         if (progress >= 1) {
           permanentlyFlippedRef.current[index] = true;
         }
@@ -357,10 +357,18 @@ const LearningJourney = () => {
       });
       
       setCardProgress(newProgress);
+      ticking = false;
     };
     
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateCardProgress);
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateCardProgress();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
