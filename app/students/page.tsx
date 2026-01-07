@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Target,
   Brain,
@@ -45,10 +46,13 @@ export default function StudentsCorner() {
       <nav className="fixed top-0 w-full bg-white/60 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img 
+            <Image 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
-              className="h-[150px] w-auto object-contain mt-4" 
+              width={300}
+              height={150}
+              className="h-[150px] w-auto object-contain mt-4"
+              priority
             />
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">

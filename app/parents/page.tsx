@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Heart, 
   BookOpen, 
@@ -48,10 +49,13 @@ export default function ParentsCorner() {
       <nav className="fixed top-0 w-full bg-white/60 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img 
+            <Image 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
-              className="h-[150px] w-auto object-contain mt-4" 
+              width={300}
+              height={150}
+              className="h-[150px] w-auto object-contain mt-4"
+              priority
             />
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
@@ -145,10 +149,13 @@ export default function ParentsCorner() {
             
             <FadeIn delay={0.2}>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
+                <Image 
                   src="/parents-teaching-child.png" 
                   alt="Parent and child learning together" 
+                  width={800}
+                  height={600}
                   className="w-full h-auto object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

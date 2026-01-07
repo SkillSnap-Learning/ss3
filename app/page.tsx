@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { CURRICULUM_DATA } from './curriculum';
 import { FAQ_DATA } from './faqs-data';
 import { 
@@ -765,10 +766,12 @@ const AppDownload = () => {
 
              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start">
                <button className="flex items-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300 font-medium w-full sm:w-auto justify-center sm:justify-start">
-                 <img 
+                 <Image 
                   src="/google-play-store-logo.png" 
                   alt="Google Play" 
-                  className="w-6 h-6 shrink-0 object-contain" 
+                  width={48}
+                  height={48}
+                  className="w-6 h-6 shrink-0 object-contain"
                 />
                  <div className="text-left">
                    <div className="text-[10px] uppercase font-bold text-gray-500 leading-none">GET IT ON</div>
@@ -777,9 +780,11 @@ const AppDownload = () => {
                </button>
 
                <button className="flex items-center gap-3 bg-[#083e99] text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-[#083e99] hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
-                 <img 
+                 <Image 
                   src="/app-play-store-logo.png" 
                   alt="App Store" 
+                  width={48}
+                  height={48}
                   className="w-6 h-6 shrink-0 object-contain brightness-0 invert"
                 />
                  <div className="text-left">
@@ -805,10 +810,12 @@ const AppDownload = () => {
                     target.classList.toggle('is-zoomed');
                 }}
                 >
-                <img 
-                    src="/girl-holding-phone.jpg" 
-                    alt="Happy Indian student showing learning app on phone" 
-                    className="w-full h-auto object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 group-[.is-zoomed]:scale-110 group-[.is-zoomed]:brightness-110"
+                <Image 
+                  src="/girl-holding-phone.jpg" 
+                  alt="Happy Indian student showing learning app on phone" 
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 group-[.is-zoomed]:scale-110 group-[.is-zoomed]:brightness-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent transition-opacity duration-500 group-hover:opacity-70 group-[.is-zoomed]:opacity-70"></div>
             </div>
@@ -901,10 +908,13 @@ export default function SkillsnapLanding() {
       <nav className="fixed top-0 w-full bg-white/60 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img 
+            <Image 
               src="/skillsnaplogotransparent.png" 
               alt="SkillSnap Logo" 
-              className="h-[150px] w-auto object-contain mt-4" 
+              width={300}
+              height={150}
+              className="h-[150px] w-auto object-contain mt-4"
+              priority
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-blue-900">
@@ -1027,10 +1037,13 @@ export default function SkillsnapLanding() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100"
             >
-                <img 
-                src="/final-hero-image.png" 
-                alt="Happy student holding tablet showing coding project" 
-                className="w-full h-full object-cover object-[70%_center]"
+                <Image 
+                  src="/final-hero-image.png" 
+                  alt="Happy student holding tablet showing coding project" 
+                  width={800}
+                  height={1000}
+                  className="w-full h-full object-cover object-[70%_center]"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
             </motion.div>
@@ -1510,10 +1523,12 @@ export default function SkillsnapLanding() {
             
             <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center justify-center md:justify-start gap-2 -mb-2 -mt-7">
-                <img 
-                    src="/skillsnaplogotransparent.png" 
-                    alt="SkillSnap Logo" 
-                    className="h-32 w-auto object-contain -ml-2" 
+                <Image 
+                  src="/skillsnaplogotransparent.png" 
+                  alt="SkillSnap Logo" 
+                  width={300}
+                  height={150}
+                  className="h-32 w-auto object-contain -ml-2"
                 />
                 </div>
                 <p className="text-gray-500 max-w-sm leading-relaxed mx-auto md:mx-0">
