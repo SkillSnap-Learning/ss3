@@ -1064,8 +1064,11 @@ export default function SkillsnapLanding() {
         </div>
       </section>
 
+      {/* Border */}
+      <div className='border-y border-gray-100 bg-gray-50/50'></div>
+
       {/* --- Social Proof --- */}
-      <section className="py-10 border-y border-gray-100 bg-gray-50/50">
+      <section className="hidden py-10 border-y border-gray-100 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">Designed for students from top schools</p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
