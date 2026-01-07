@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { CURRICULUM_DATA } from './curriculum';
 import { FAQ_DATA } from './faqs-data';
 import { 
@@ -28,6 +29,34 @@ import {
   Phone
 } from 'lucide-react';
 import Link from 'next/link';
+
+const LearningJourney = dynamic(() => import('@/components/LearningJourney'), {
+  loading: () => (
+    <div className="py-24 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded w-96 mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  ),
+  ssr: false
+});
+
+const AppDownload = dynamic(() => import('@/components/AppDownload'), {
+  loading: () => (
+    <div className="bg-blue-950 py-24">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="animate-pulse">
+          <div className="h-8 bg-blue-800 rounded w-64 mx-auto mb-4"></div>
+          <div className="h-4 bg-blue-800 rounded w-96 mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  ),
+  ssr: false
+});
 
 const iconPaths: Record<string, string> = {
   Calendar: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
@@ -103,22 +132,41 @@ const ParticleField = () => {
     delay: number;
     opacity: number;
   }>>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    
+    // Skip particles on mobile entirely
+    if (window.innerWidth < 768) {
+      setParticles([]);
+      return;
+    }
+    
+    // Reduced count: 18 particles instead of 40
     setParticles(
-      Array.from({ length: 40 }, (_, i) => ({
+      Array.from({ length: 18 }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 4 + 2,
-        duration: Math.random() * 20 + 20,
-        delay: Math.random() * -20,
-        opacity: Math.random() * 0.4 + 0.1
+        size: Math.random() * 3 + 2,
+        duration: Math.random() * 15 + 25,
+        delay: Math.random() * -15,
+        opacity: Math.random() * 0.3 + 0.1
       }))
     );
+
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  if (particles.length === 0) return null;
+  // Don't render on mobile or if no particles
+  if (isMobile || particles.length === 0) return null;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -131,11 +179,12 @@ const ParticleField = () => {
             height: particle.size,
             left: `${particle.x}%`,
             top: `${particle.y}%`,
-            opacity: particle.opacity
+            opacity: particle.opacity,
+            willChange: 'transform'
           }}
           animate={{
-            y: [0, -30, 0, 20, 0],
-            x: [0, 15, -10, 5, 0],
+            y: [0, -20, 0, 15, 0],
+            x: [0, 10, -8, 4, 0],
           }}
           transition={{
             duration: particle.duration,
@@ -315,488 +364,6 @@ const FloatingBadge = ({ icon: Icon, text, className }: { icon: any, text: strin
     <span className="text-sm font-bold text-gray-700">{text}</span>
   </motion.div>
 );
-
-// ===========================================
-// Learning Journey Section
-// ===========================================
-const LearningJourney = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [cardProgress, setCardProgress] = useState<number[]>([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false, false, false, false, false, false, false]);
-  const permanentlyFlippedRef = useRef<boolean[]>([false, false, false, false, false, false, false, false, false]);
-  
-  useEffect(() => {
-    let ticking = false;
-    
-    const updateCardProgress = () => {
-      if (!containerRef.current) return;
-      
-      const cards = containerRef.current.querySelectorAll('.flip-card');
-      const windowHeight = window.innerHeight;
-      
-      const newProgress: number[] = [];
-      
-      cards.forEach((card, index) => {
-        if (permanentlyFlippedRef.current[index]) {
-          newProgress.push(1);
-          return;
-        }
-        
-        const cardRect = card.getBoundingClientRect();
-        const cardTop = cardRect.top;
-        
-        const progress = Math.max(0, Math.min(1,
-          (windowHeight * 0.95 - cardTop) / (windowHeight * 0.25)
-        ));
-        
-        if (progress >= 1) {
-          permanentlyFlippedRef.current[index] = true;
-        }
-        
-        newProgress.push(progress);
-      });
-      
-      setCardProgress(newProgress);
-      ticking = false;
-    };
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateCardProgress);
-        ticking = true;
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    updateCardProgress();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const cards = [
-    {
-      icon: Calendar,
-      color: "text-blue-600",
-      bgFront: "bg-gradient-to-br from-blue-100 to-blue-200",
-      bgBack: "bg-blue-50/50",
-      border: "border-blue-100",
-      strokeColor: "#2563eb",
-      title: "Structured Weekday Learning",
-      bulletColor: "bg-blue-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Classes run Monday to Friday, but all lectures are accessible on weekends too.",
-          "Lectures are scheduled thoughtfully, not released all at once, to avoid boredom or confusion."
-        ] 
-      }
-    },
-    {
-      icon: Rocket,
-      color: "text-rose-600",
-      bgFront: "bg-gradient-to-br from-rose-100 to-rose-200",
-      bgBack: "bg-rose-50/50",
-      border: "border-rose-100",
-      strokeColor: "#e11d48",
-      title: "Step-by-Step Learning",
-      bulletColor: "bg-rose-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "We start from basic concepts and gradually move to advanced topics.",
-          "Students learn beyond school syllabus, not just NCERT, with advanced content and mock exercises.",
-          "AI-powered programs personalize the learning path for every student according to their capacity."
-        ] 
-      }
-    },
-    {
-      icon: Play,
-      color: "text-pink-600",
-      bgFront: "bg-gradient-to-br from-pink-100 to-pink-200",
-      bgBack: "bg-pink-50/50",
-      border: "border-pink-100",
-      strokeColor: "#db2777",
-      title: "Interactive & Engaging Lessons",
-      bulletColor: "bg-pink-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Lessons include visual graphics and playful videos to make concepts interesting and interactive.",
-          "Gamified learning with quizzes, puzzles, and fun activities keeps students motivated."
-        ] 
-      }
-    },
-    {
-      icon: Clock,
-      color: "text-orange-600",
-      bgFront: "bg-gradient-to-br from-orange-100 to-orange-200",
-      bgBack: "bg-orange-50/50",
-      border: "border-orange-100",
-      strokeColor: "#ea580c",
-      title: "Optimized Lecture Structure",
-      bulletColor: "bg-orange-500",
-      extra: { 
-        type: "numbers", 
-        items: [
-          { num: "35", label: "25–35 minutes of lecture per subject", color: "text-orange-600", border: "border-orange-100" },
-          { num: "10", label: "5–10 minutes of quick revisions and key notes", color: "text-teal-600", border: "border-teal-100" },
-          { num: "10", label: "5–10 minutes of quick, interactive tests to reinforce learning", color: "text-purple-600", border: "border-purple-100" }
-        ]
-      }
-    },
-    {
-      icon: BookOpen,
-      color: "text-amber-600",
-      bgFront: "bg-gradient-to-br from-amber-100 to-amber-200",
-      bgBack: "bg-amber-50/50",
-      border: "border-amber-100",
-      strokeColor: "#d97706",
-      title: "Daily Learning Support",
-      bulletColor: "bg-amber-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Students receive daily summary PDFs and quick notes sheets for easy revision.",
-          "Parents get daily insights about each subject, covering their child's learning and test performance."
-        ] 
-      }
-    },
-    {
-      icon: Lock,
-      color: "text-teal-600",
-      bgFront: "bg-gradient-to-br from-teal-100 to-teal-200",
-      bgBack: "bg-teal-50/50",
-      border: "border-teal-100",
-      strokeColor: "#0d9488",
-      title: "Mastery-Based Progression",
-      bulletColor: "bg-teal-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "We do not move ahead to the next chapter unless a student clears all tests and revisions for the current chapter.",
-          "This ensures strong foundations before advancing."
-        ] 
-      }
-    },
-    {
-      icon: Users,
-      color: "text-indigo-600",
-      bgFront: "bg-gradient-to-br from-indigo-100 to-indigo-200",
-      bgBack: "bg-indigo-50/50",
-      border: "border-indigo-100",
-      strokeColor: "#4f46e5",
-      title: "Personalized Timetable & Breaks",
-      bulletColor: "bg-indigo-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Lessons follow a personalized timetable for each student.",
-          "Short 5–15 minute breaks are provided after each subject to relax and recharge."
-        ] 
-      }
-    },
-    {
-      icon: Award,
-      color: "text-cyan-600",
-      bgFront: "bg-gradient-to-br from-cyan-100 to-cyan-200",
-      bgBack: "bg-cyan-50/50",
-      border: "border-cyan-100",
-      strokeColor: "#0891b2",
-      title: "Continuous Assessment",
-      bulletColor: "bg-cyan-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Students take weekly and monthly mini-tests and quarterly major tests.",
-          "This ensures steady progress tracking and reinforces learning."
-        ] 
-      }
-    },
-    {
-      icon: Code,
-      color: "text-purple-600",
-      bgFront: "bg-gradient-to-br from-purple-100 to-purple-200",
-      bgBack: "bg-purple-50/50",
-      border: "border-purple-100",
-      strokeColor: "#9333ea",
-      title: "Weekend Coding Classes",
-      bulletColor: "bg-purple-500",
-      extra: { 
-        type: "bullets", 
-        items: [
-          "Coding and practical experiments are conducted on weekends (2-hour sessions).",
-          "Hands-on projects develop problem-solving, creativity, and real-world application."
-        ] 
-      }
-    }
-  ];
-
-  const iconPaths: Record<string, string> = {
-    Calendar: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
-    Clock: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2",
-    Lock: "M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4",
-    Code: "M16 18l6-6-6-6M8 6l-6 6 6 6",
-    Rocket: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z",
-    Play: "M5 3l14 9-14 9V3z",
-    BookOpen: "M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z",
-    Users: "M18 19v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 19v-2a4 4 0 0 0-3-4M16 1a4 4 0 0 1 0 8",
-    Award: "M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z"
-  };
-
-  return (
-    <section className="py-24 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold text-blue-950 mb-4">How You Learn</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              At Skillsnap Learning, we believe learning should be structured, engaging,  and personalized to each student’s pace and potential. Here’s how we  teach:
-            </p>
-          </FadeIn>
-        </div>
-
-        <div ref={containerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cards.map((card, idx) => {
-            const progress = cardProgress[idx] || 0;
-            const Icon = card.icon;
-            const iconName = Icon.displayName || Icon.name || '';
-            
-            return (
-              <div
-                key={idx}
-                className="flip-card h-[340px]"
-                style={{ perspective: "2000px" }}
-              >
-                <motion.div
-                  className="relative w-full h-full"
-                  style={{
-                    transformStyle: "preserve-3d",
-                  }}
-                  animate={{ rotateY: progress * 180 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20
-                  }}
-                >
-                  {/* Front of card (preview - visible initially) */}
-                  <div
-                    className={`absolute inset-0 ${card.bgFront} rounded-2xl p-6 border ${card.border} flex flex-col items-center justify-center`}
-                    style={{ 
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden"
-                    }}
-                  >
-                    <div className="w-16 h-16 bg-white/80 rounded-xl shadow-lg flex items-center justify-center mb-4">
-                      <Icon size={32} className={card.color} />
-                    </div>
-                    <h3 className="text-lg font-bold text-blue-950 text-center">{card.title}</h3>
-                    <p className="text-xs text-gray-500 mt-2">Scroll to reveal</p>
-                  </div>
-
-                  {/* Back of card (content - revealed after flip) */}
-                <div
-                className={`absolute inset-0 ${card.bgBack} rounded-2xl p-6 border ${card.border} flex flex-col`}
-                style={{ 
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)"
-                }}
-                >
-                {/* Animated Icon - Continuous Loop */}
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3">
-                    <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={card.strokeColor}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="overflow-visible"
-                    >
-                    <motion.path
-                        d={iconPaths[iconName] || iconPaths.Calendar}
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={progress >= 1 
-                        ? { pathLength: [0, 1, 1, 0], opacity: 1 } 
-                        : { pathLength: 0, opacity: 0 }
-                        }
-                        transition={progress >= 1 
-                        ? { 
-                            pathLength: {
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                times: [0, 0.4, 0.6, 1]
-                            },
-                            opacity: { duration: 0.3 }
-                            } 
-                        : { duration: 0.3 }
-                        }
-                    />
-                    </svg>
-                </div>
-                
-                <h3 className="text-lg font-bold text-blue-950 mb-3">{card.title}</h3>
-                
-                {/* Bullets */}
-                {card.extra.type === "bullets" && (
-                    <ul className="space-y-2 flex-grow">
-                    {card.extra.items?.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${card.bulletColor} mt-1.5 shrink-0`}></span>
-                        <span className="text-sm text-gray-700 leading-relaxed">{item as string}</span>
-                        </li>
-                    ))}
-                    </ul>
-                )}
-                
-                {/* Numbers */}
-                {card.extra.type === "numbers" && (
-                    <ul className="space-y-2 flex-grow">
-                    {card.extra.items?.map((item, i) => {
-                        const numItem = item as { num: string; label: string; color: string; border: string };
-                        return (
-                        <li key={i} className="flex items-center gap-2">
-                            <span className={`w-7 h-7 rounded-full bg-white flex items-center justify-center font-bold text-xs ${numItem.color} border ${numItem.border}`}>
-                            {numItem.num}
-                            </span>
-                            <span className="text-sm text-gray-700">{numItem.label}</span>
-                        </li>
-                        );
-                    })}
-                    </ul>
-                )}
-                </div>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
-        {/* Closing Statement */}
-        <FadeIn>
-        <div className="mt-16 text-center max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 leading-relaxed">
-            At Skillsnap Learning, we blend <span className="text-blue-600 font-semibold">structure</span>, <span className="text-rose-600 font-semibold">personalization</span>, <span className="text-orange-600 font-semibold">interactivity</span>, and <span className="text-teal-600 font-semibold">continuous assessment</span> to ensure every student learns, enjoys, and excels beyond traditional school learning.
-            </p>
-        </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-};
-
-// ===========================================
-// App Download Section
-// ===========================================
-const AppDownload = () => {
-  return (
-    <section className="bg-blue-950 py-24 overflow-hidden relative">
-       <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-
-       <div className="max-w-7xl mx-auto px-6 relative z-10">
-         <div className="grid lg:grid-cols-2 gap-12 items-center">
-           
-           <div className="text-center lg:text-left">
-             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-900 text-blue-200 rounded-full text-sm font-bold mb-6 border border-blue-800">
-               <Smartphone size={16} />
-               <span>Learning in your pocket</span>
-             </div>
-             
-             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-               Go at your own rhythm.<br />
-               <motion.span
-                    className="inline-block"
-                    style={{
-                        backgroundImage: "linear-gradient(90deg, #f97316 0%, #f97316 40%, #ffffff 50%, #f97316 60%, #f97316 100%)",
-                        backgroundSize: "200% 100%",
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        color: "transparent"
-                    }}
-                    animate={{
-                        backgroundPosition: ["200% 0%", "-200% 0%"]
-                    }}
-                    transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                    >
-                    24/7 Access from anywhere.
-                </motion.span>
-             </h2>
-             
-             <p className="text-blue-200 text-lg mb-10 max-w-xl mx-auto lg:mx-0">
-               Download the Skillsnap Learning App – India's Out-of-the-Box Learning Platform.
-               Watch lectures, take quizzes, and track progress on the go.
-             </p>
-
-             <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start">
-               <button className="flex items-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300 font-medium w-full sm:w-auto justify-center sm:justify-start">
-                 <Image 
-                  src="/google-play-store-logo.png" 
-                  alt="Google Play" 
-                  width={48}
-                  height={48}
-                  className="w-6 h-6 shrink-0 object-contain"
-                />
-                 <div className="text-left">
-                   <div className="text-[10px] uppercase font-bold text-gray-500 leading-none">GET IT ON</div>
-                   <div className="text-base font-bold leading-none mt-0.5">Google Play</div>
-                 </div>
-               </button>
-
-               <button className="flex items-center gap-3 bg-[#083e99] text-white border border-white/20 px-6 py-3 rounded-xl hover:bg-[#083e99] hover:scale-105 transition-all duration-300 font-medium backdrop-blur-sm w-full sm:w-auto justify-center sm:justify-start">
-                 <Image 
-                  src="/app-play-store-logo.png" 
-                  alt="App Store" 
-                  width={48}
-                  height={48}
-                  className="w-6 h-6 shrink-0 object-contain brightness-0 invert"
-                />
-                 <div className="text-left">
-                   <div className="text-[10px] uppercase font-bold text-gray-400 leading-none">Download on the</div>
-                   <div className="text-base font-bold leading-none mt-0.5">App Store</div>
-                 </div>
-               </button>
-             </div>
-           </div>
-
-           <div className="relative mx-auto w-full max-w-md lg:max-w-full font-sans">
-             <div className="absolute top-10 -left-6 z-20 bg-white p-3 rounded-xl shadow-xl animate-bounce duration-[3000ms]">
-                <div className="flex items-center gap-2">
-                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                   <span className="text-xs font-bold text-gray-800">Anytime, Anywhere</span>
-                </div>
-             </div>
-             
-             <div 
-                className="relative rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl group cursor-pointer"
-                onClick={(e) => {
-                    const target = e.currentTarget;
-                    target.classList.toggle('is-zoomed');
-                }}
-                >
-                <Image 
-                  src="/girl-holding-phone.jpg" 
-                  alt="Happy Indian student showing learning app on phone" 
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 group-[.is-zoomed]:scale-110 group-[.is-zoomed]:brightness-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent transition-opacity duration-500 group-hover:opacity-70 group-[.is-zoomed]:opacity-70"></div>
-            </div>
-           </div>
-
-         </div>
-       </div>
-    </section>
-  )
-}
 
 // ===========================================
 // MAIN PAGE COMPONENT
