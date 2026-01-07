@@ -487,7 +487,7 @@ export default function SkillsnapLanding() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold uppercase tracking-wide mb-6">
                 <Rocket size={14} fill="currentColor" />
-                Strong Foundations for Future Skills.
+                Strong Foundations for Future Skills
               </div>
             </motion.div>
             
