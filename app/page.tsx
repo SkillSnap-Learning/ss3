@@ -29,6 +29,7 @@ import {
   Phone
 } from 'lucide-react';
 import Link from 'next/link';
+import { submitContactForm } from '@/lib/api';
 
 const LearningJourney = dynamic(() => import('@/components/LearningJourney'), {
   loading: () => (
@@ -373,6 +374,73 @@ export default function SkillsnapLanding() {
   const [activeTab, setActiveTab] = useState("Class 6");
   const [expandedCard, setExpandedCard] = useState<number | string | null>(null);
   const [highlightForm, setHighlightForm] = useState(false);
+  
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    class: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: string; text: string }>({ 
+    type: '', 
+    text: '' 
+  });
+  const [isMounted, setIsMounted] = useState(false);
+  
+  // ADD THIS EFFECT:
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage({ type: '', text: '' });
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/public/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          message: `Class ${formData.class} inquiry`,
+          source: 'contact_form'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      setSubmitMessage({ 
+        type: 'success', 
+        text: data.message || 'Thank you! We will contact you soon.' 
+      });
+      
+      // Reset form
+      setFormData({ name: '', phone: '', email: '', class: '' });
+    } catch (error: any) {
+      setSubmitMessage({ 
+        type: 'error', 
+        text: error.message || 'Failed to submit. Please try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -527,39 +595,75 @@ export default function SkillsnapLanding() {
                   <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
                   Get a Call Back
                 </h3>
-                <form className="space-y-3">
+                <form className="space-y-3" onSubmit={handleSubmit}>
+                  {submitMessage.text && (
+                    <div className={`p-3 rounded-lg text-sm ${
+                      submitMessage.type === 'success' 
+                        ? 'bg-green-100 text-green-700 border border-green-200' 
+                        : 'bg-red-100 text-red-700 border border-red-200'
+                    }`}>
+                      {submitMessage.text}
+                    </div>
+                  )}
+                  
                   <input 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Student's/Parent's Name *"
                     required 
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all disabled:opacity-50" 
+                  />
+                  
                   <input 
                     type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="Phone Number (WhatsApp preferred) *" 
                     required
-                    pattern='[0-9]{10}'
-                    title='Please enter a valid 10-digit mobile number'
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit mobile number"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all disabled:opacity-50" 
+                  />
+                  
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Email Address (optional)"
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all" />
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all disabled:opacity-50" 
+                  />
+                  
                   <select 
+                    name="class"
+                    value={formData.class}
+                    onChange={handleInputChange}
                     required
-                    defaultValue=""
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-gray-500">
-                    <option value="" disabled>Select Student's Class *</option>
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all disabled:opacity-50"
+                  >
+                    <option value="">Select Student&apos;s Class *</option>
                     <option value="6">Class 6</option>
                     <option value="7">Class 7</option>
                     <option value="8">Class 8</option>
                     <option value="9">Class 9</option>
                     <option value="10">Class 10</option>
                   </select>
+                  
                   <button 
-                    type='submit' 
-                    className="w-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-orange-200 hover:shadow-xl hover:scale-[1.02] transition-all">
-                    Request Call Back
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-orange-200 hover:shadow-xl hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Request Call Back'}
                   </button>
+                  
                   <p className="text-xs text-center text-gray-400 mt-2">Our counselors will call you within 24 hours.</p>
                 </form>
               </div>
