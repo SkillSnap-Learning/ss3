@@ -26,7 +26,11 @@ import {
   Mail,
   MapPin,
   Download,
-  Phone
+  Phone,
+  Facebook,
+  Linkedin,
+  Instagram,
+  Youtube
 } from 'lucide-react';
 import Link from 'next/link';
 import { submitContactForm } from '@/lib/api';
@@ -505,6 +509,20 @@ export default function SkillsnapLanding() {
       title: "Downloadable Notes & Smart Revision Material",
       desc: "Every concept is supported with structured notes and revision-ready resources, helping students revise efficiently and parents stay confident."
     }
+  ];
+
+  const XIcon = ({ size = 24 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+  
+  const socialLinks = [
+    { Icon: Facebook, href: "https://facebook.com/skillsnap", label: "Facebook", hoverColor: "hover:bg-blue-600" },
+    { Icon: Instagram, href: "https://instagram.com/skillsnap", label: "Instagram", hoverColor: "hover:bg-pink-600" },
+    { Icon: XIcon, href: "https://x.com/skillsnap", label: "X", hoverColor: "hover:bg-black" },
+    { Icon: Linkedin, href: "https://linkedin.com/company/skillsnap", label: "LinkedIn", hoverColor: "hover:bg-blue-700" },
+    { Icon: Youtube, href: "https://youtube.com/@skillsnap", label: "YouTube", hoverColor: "hover:bg-red-600" },
   ];
 
   return (
@@ -1164,69 +1182,108 @@ export default function SkillsnapLanding() {
       <AppDownload />
 
       {/* --- Footer --- */}
-      <footer className="bg-gray-50 pt-20 pb-10 border-t border-gray-200 text-gray-600">
+      <footer className="bg-gray-900 pt-20 pb-10 text-gray-400">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-4 gap-12 mb-16 text-center md:text-left">
+          <div className="grid md:grid-cols-4 gap-12 mb-16 text-center md:text-left">
             
+            {/* Brand Column */}
             <div className="col-span-1 md:col-span-2">
-                <div className="flex items-center justify-center md:justify-start gap-2 -mb-2 -mt-7">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
                 <Image 
                   src="/skillsnaplogotransparent.png" 
                   alt="SkillSnap Logo" 
-                  width={300}
-                  height={150}
-                  className="h-32 w-auto object-contain -ml-2"
+                  width={200}
+                  height={100}
+                  className="h-20 w-auto object-contain brightness-0 invert"
                 />
-                </div>
-                <p className="text-gray-500 max-w-sm leading-relaxed mx-auto md:mx-0">
+              </div>
+              <p className="text-gray-400 max-w-sm leading-relaxed mx-auto md:mx-0 mb-6">
                 We create unique learning paths for every student, ensuring the curriculum matches their abilities and inspires growth.
-                </p>
+              </p>
+              
+              {/* Social Icons */}
+              <div className="flex items-center justify-center md:justify-start gap-3">
+                {socialLinks.map((social, idx) => {
+                  const IconComponent = social.Icon;
+                  return (
+                    <a
+                      key={idx}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className={`w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white ${social.hoverColor} transition-all duration-300 hover:scale-110 hover:-translate-y-1`}
+                    >
+                      <IconComponent size={18} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
 
+            {/* Quick Links */}
             <div>
-                <h4 className="font-bold text-gray-900 mb-6">Quick Links</h4>
-                <ul className="space-y-4">
-                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
-                        <a href="#" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
-                            <Users size={16} className="text-orange-500"/>
-                            <span>About Us</span>
-                        </a>
-                    </li>
-                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
-                        <button onClick={scrollToContact} className="flex items-center gap-2 hover:text-orange-600 transition-colors">
-                            <Phone size={16} className="text-orange-500"/>
-                            <span>Contact Us</span>
-                        </button>
-                    </li>
-                    <li className="flex items-start justify-center md:justify-start gap-3 mb-4">
-                        <a href="mailto:hello@skillsnap.com" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
-                            <Mail size={16} className="text-orange-500"/>
-                            <span>Email Us</span>
-                        </a>
-                    </li>
-                </ul>
+              <h4 className="font-bold text-white mb-6">Quick Links</h4>
+              <ul className="space-y-4">
+                <li>
+                  <a href="#" className="flex items-center justify-center md:justify-start gap-2 hover:text-orange-400 transition-colors">
+                    <Users size={16} className="text-orange-500"/>
+                    <span>About Us</span>
+                  </a>
+                </li>
+                <li>
+                  <button onClick={scrollToContact} className="flex items-center justify-center md:justify-start gap-2 hover:text-orange-400 transition-colors w-full">
+                    <Phone size={16} className="text-orange-500"/>
+                    <span>Contact Us</span>
+                  </button>
+                </li>
+                <li>
+                  <Link href="/students" className="flex items-center justify-center md:justify-start gap-2 hover:text-orange-400 transition-colors">
+                    <BookOpen size={16} className="text-orange-500"/>
+                    <span>Student&apos;s Corner</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/parents" className="flex items-center justify-center md:justify-start gap-2 hover:text-orange-400 transition-colors">
+                    <Shield size={16} className="text-orange-500"/>
+                    <span>Parent&apos;s Corner</span>
+                  </Link>
+                </li>
+              </ul>
             </div>
 
+            {/* Contact Info */}
             <div>
-                <h4 className="font-bold text-gray-900 mb-6">Get in Touch</h4>
-                <div className="flex items-start justify-center md:justify-start gap-3 mb-4">
-                <Mail size={20} className="text-orange-500 mt-1" />
-                <span>support@skillsnap.com</span>
-                </div>
-                <div className="flex items-start justify-center md:justify-start gap-3">
-                <MapPin size={20} className="text-orange-500 mt-1" />
-                <span>New Delhi, India</span>
-                </div>
+              <h4 className="font-bold text-white mb-6">Get in Touch</h4>
+              <ul className="space-y-4">
+                <li className="flex items-start justify-center md:justify-start gap-3">
+                  <Mail size={18} className="text-orange-500 mt-0.5" />
+                  <a href="mailto:support@skillsnap.com" className="hover:text-orange-400 transition-colors">
+                    support@skillsnap.com
+                  </a>
+                </li>
+                <li className="flex items-start justify-center md:justify-start gap-3">
+                  <Phone size={18} className="text-orange-500 mt-0.5" />
+                  <a href="tel:+919999999999" className="hover:text-orange-400 transition-colors">
+                    +91 99999 99999
+                  </a>
+                </li>
+                <li className="flex items-start justify-center md:justify-start gap-3">
+                  <MapPin size={18} className="text-orange-500 mt-0.5" />
+                  <span>New Delhi, India</span>
+                </li>
+              </ul>
             </div>
+          </div>
+          
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Use</a>
             </div>
-            
-            <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left">
-                <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
-                <div className="flex gap-6 mt-4 md:mt-0">
-                <a href="#" className="hover:text-gray-900">Privacy Policy</a>
-                <a href="#" className="hover:text-gray-900">Terms of Use</a>
-                </div>
-            </div>
+          </div>
         </div>
       </footer>
 
