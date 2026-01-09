@@ -1192,9 +1192,9 @@ export default function SkillsnapLanding() {
                 <Image 
                   src="/skillsnaplogotransparent.png" 
                   alt="SkillSnap Logo" 
-                  width={200}
-                  height={100}
-                  className="h-20 w-auto object-contain brightness-0 invert"
+                  width={350}
+                  height={150}
+                  className="h-32 w-auto object-contain -ml-2"
                 />
               </div>
               <p className="text-gray-400 max-w-sm leading-relaxed mx-auto md:mx-0 mb-6">
