@@ -1280,8 +1280,8 @@ export default function SkillsnapLanding() {
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <p>&copy; 2026 Skillsnap Learning Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Use</a>
+              <Link href="/privacy-policy" className="hover:text-orange-400 transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-use" className="hover:text-orange-400 transition-colors">Terms of Use</Link>
             </div>
           </div>
         </div>
