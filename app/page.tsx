@@ -1270,7 +1270,7 @@ export default function SkillsnapLanding() {
                 </li>
                 <li className="flex items-start justify-center md:justify-start gap-3">
                   <MapPin size={18} className="text-orange-500 mt-0.5" />
-                  <span>New Delhi, India</span>
+                  <span>Gurgaon, Haryana</span>
                 </li>
               </ul>
             </div>
