@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat, Poppins } from "next/font/google";
-import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,27 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3Z5Y46Z7GJ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-3Z5Y46Z7GJ');
-          `}
-        </Script>
-      </head>
-      <body
-        className={poppins.className}
-        suppressHydrationWarning
-      >
+      <body className={poppins.className}>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-3Z5Y46Z7GJ" />
     </html>
   );
 }
