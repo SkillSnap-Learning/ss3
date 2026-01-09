@@ -1257,7 +1257,7 @@ export default function SkillsnapLanding() {
               <h4 className="font-bold text-white mb-6">Get in Touch</h4>
               <ul className="space-y-4">
                 <li className="flex items-start justify-center md:justify-start gap-3">
-                  <Mail size={18} className="text-orange-500 mt-0.5" />
+                  <Mail size={18} className="text-orange-500 mt-0.5 flex-shrink-0" />
                   <a href="mailto:support@skillsnaplearning.com" className="hover:text-orange-400 transition-colors">
                     support@skillsnaplearning.com
                   </a>
