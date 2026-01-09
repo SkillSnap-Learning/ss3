@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat, Poppins } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
+import { OrganizationSchema } from '@/components/StructuredData';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -98,6 +100,7 @@ export default function RootLayout({
         {/* Preconnect to Google services */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <OrganizationSchema />
       </head>
       <body className={poppins.className}>
         {children}
