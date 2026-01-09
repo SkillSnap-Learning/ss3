@@ -26,8 +26,65 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SkillSnap Learning",
-  description: "The only platform for Class 6-10 that combines School Academics with Future Tech Skills. Get the guidance your child deserves.",
+  title: {
+    default: "SkillSnap Learning | Online Classes for Class 6-10 | Academics + Coding",
+    template: "%s | SkillSnap Learning"
+  },
+  description: "India's leading online learning platform for Class 6-10 students. Combine school academics with future tech skills like coding. Live classes, AI-powered learning, and expert mentors. Start your free trial today!",
+  keywords: [
+    "online classes for class 6",
+    "online tuition class 7",
+    "online coaching class 8",
+    "online classes class 9",
+    "online tuition class 10",
+    "coding classes for kids",
+    "CBSE online classes",
+    "ICSE online tuition",
+    "math online classes",
+    "science online tuition",
+    "programming for students",
+    "ed-tech India"
+  ],
+  authors: [{ name: "SkillSnap Learning Pvt Ltd" }],
+  creator: "SkillSnap Learning",
+  publisher: "SkillSnap Learning Pvt Ltd",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://www.skillsnaplearning.com',
+    siteName: 'SkillSnap Learning',
+    title: 'SkillSnap Learning | Online Classes for Class 6-10',
+    description: 'Combine school academics with future tech skills. Live classes, AI-powered learning for Class 6-10 students.',
+    images: [
+      {
+        url: 'https://www.skillsnaplearning.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SkillSnap Learning - Online Education Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SkillSnap Learning | Online Classes for Class 6-10',
+    description: 'Combine school academics with future tech skills. Live classes for Class 6-10.',
+    images: ['https://www.skillsnaplearning.com/og-image.png'],
+    creator: '@skillsnaplearn',
+  },
+  alternates: {
+    canonical: 'https://www.skillsnaplearning.com',
+  },
 };
 
 export default function RootLayout({
