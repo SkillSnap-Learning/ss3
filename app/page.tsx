@@ -518,11 +518,11 @@ export default function SkillsnapLanding() {
   );
   
   const socialLinks = [
-    { Icon: Facebook, href: "https://facebook.com/skillsnap", label: "Facebook", hoverColor: "hover:bg-blue-600" },
-    { Icon: Instagram, href: "https://instagram.com/skillsnap", label: "Instagram", hoverColor: "hover:bg-pink-600" },
-    { Icon: XIcon, href: "https://x.com/skillsnap", label: "X", hoverColor: "hover:bg-black" },
-    { Icon: Linkedin, href: "https://linkedin.com/company/skillsnap", label: "LinkedIn", hoverColor: "hover:bg-blue-700" },
-    { Icon: Youtube, href: "https://youtube.com/@skillsnap", label: "YouTube", hoverColor: "hover:bg-red-600" },
+    { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61586000617763", label: "Facebook", hoverColor: "hover:bg-blue-600" },
+    { Icon: Instagram, href: "https://www.instagram.com/skillsnaplearning", label: "Instagram", hoverColor: "hover:bg-pink-600" },
+    { Icon: XIcon, href: "https://x.com/skillsnaplearn", label: "X", hoverColor: "hover:bg-black" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/company/110972038/admin/dashboard", label: "LinkedIn", hoverColor: "hover:bg-blue-700" },
+    { Icon: Youtube, href: "https://www.youtube.com/channel/UCgdNjvZRmcMK5dgc0sv6Q-w", label: "YouTube", hoverColor: "hover:bg-red-600" },
   ];
 
   return (
@@ -1265,7 +1265,7 @@ export default function SkillsnapLanding() {
                 <li className="flex items-start justify-center md:justify-start gap-3">
                   <Phone size={18} className="text-orange-500 mt-0.5" />
                   <a href="tel:+919999999999" className="hover:text-orange-400 transition-colors">
-                    +91 99999 99999
+                    +91 9311933961
                   </a>
                 </li>
                 <li className="flex items-start justify-center md:justify-start gap-3">

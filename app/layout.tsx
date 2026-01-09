@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SkillSnap - Where Fun, Skill-Focused Learning Builds Real-World Excellence",
+  title: "SkillSnap Learning",
   description: "The only platform for Class 6-10 that combines School Academics with Future Tech Skills. Get the guidance your child deserves.",
 };
 
