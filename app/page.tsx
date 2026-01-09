@@ -640,7 +640,11 @@ export default function SkillsnapLanding() {
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all disabled:opacity-50" 
                   />
                   
+                  <label htmlFor="student-class" className="sr-only">
+                    Student's Class
+                  </label>
                   <select 
+                    id="student-class"
                     name="class"
                     value={formData.class}
                     onChange={handleInputChange}
@@ -686,6 +690,7 @@ export default function SkillsnapLanding() {
                   height={1000}
                   className="w-full h-full object-cover object-[70%_center]"
                   priority
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
             </motion.div>
